@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/shopimpact-banner.png" alt="ShopImpact — Consumption, considered. A custom illustrated banner featuring Tilly the turtle against a soft green and blue aurora." width="100%">
+  <img src="docs/shopimpact-banner.svg" alt="ShopImpact: a personal consumption journal and experiment workspace" width="100%">
 </p>
 
 <h1 align="center">ShopImpact</h1>
@@ -191,7 +191,7 @@ ShopImpact/
 ├── ui/                          # Shared state, components, illustrations and undo
 ├── core/                        # shopimpact-core package, CLI, data and tests
 ├── data/sources/                 # Source-data snapshot
-├── assets/shopimpact-banner.png # Custom README banner
+├── docs/shopimpact-banner.svg   # Custom README banner
 ├── static/                      # Local fonts and identity assets
 ├── tests/                       # Python and active browser checks
 ├── docs/                        # Method, setup and development documentation
