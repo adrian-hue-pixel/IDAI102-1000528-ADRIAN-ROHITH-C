@@ -378,3 +378,8 @@ The journal gives those questions a place to live. The research tools make the m
 ---
 
 <p align="center"><strong>ShopImpact · Consumption, considered.</strong></p>
+
+
+### Optional accounts
+
+Use **Log in / Sign up** in the sidebar for Supabase-managed email accounts and logout. Guest access remains available. Journals stay browser-local and do not sync by account. Public confirmation emails require a configured SMTP sender. See [account setup and privacy](docs/ACCOUNTS.md).

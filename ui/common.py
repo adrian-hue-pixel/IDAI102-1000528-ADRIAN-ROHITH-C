@@ -421,6 +421,7 @@ def render_topbar(
     st.markdown(background_html(state.display_mode, state.reduce_motion), unsafe_allow_html=True)
     with st.sidebar:
         st.markdown(brand_html(), unsafe_allow_html=True)
+        st.page_link("views/account.py", label="Your account" if state.get("account_session") else "Log in / Sign up", icon=":material/account_circle:")
         st.markdown('<div class="sidebar-label">WORKSPACE</div>', unsafe_allow_html=True)
         icons = {
             "Home": ":material/home:", "Dashboard": ":material/space_dashboard:",

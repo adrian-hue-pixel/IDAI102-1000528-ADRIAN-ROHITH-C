@@ -233,3 +233,8 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 [data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"])>[data-testid="stColumn"]>[data-testid="stVerticalBlock"]{height:100%}
 @media(max-width:900px){[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"]){grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"]){grid-template-columns:1fr}}
+
+/* Managed account screen follows the existing theme and motion preferences. */
+.account-intro{padding:1.5rem 0}.account-kicker{font-size:.7rem;letter-spacing:.16em;color:var(--accent)}
+.account-intro h2{font-size:clamp(1.7rem,3.1vw,3rem)!important;line-height:1.12!important;letter-spacing:-.045em;margin:1rem 0}
+.account-intro p{color:var(--muted)!important}.st-key-account-form{background:var(--surface);border-radius:20px;padding:1.4rem!important;border:1px solid var(--line)}

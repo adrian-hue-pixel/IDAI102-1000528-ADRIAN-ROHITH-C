@@ -23,6 +23,7 @@ init_session()
 refresh_purchase_month_index()
 
 pages = [
+    st.Page("views/account.py", title="Your account", url_path="account"),
     st.Page(
         "views/home.py",
         title="Home",
@@ -97,7 +98,7 @@ render_topbar(
     [
         item
         for item in pages
-        if item.title not in {"Research tools", "Research feedback", "Ask Tilly"}
+        if item.title not in {"Research tools", "Research feedback", "Ask Tilly", "Your account"}
     ],
 )
 with st.container(key=f"route-view-{page.url_path or 'home'}"):
