@@ -9,9 +9,6 @@ node_modules/
 test-results/
 playwright-report/
 
-# Keep the unfinished top-level README local until it is ready.
-/README.md
-
 # Credentials and local configuration
 .env
 .env.*
