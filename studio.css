@@ -228,3 +228,8 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 [class*="st-key-badge-card-"] h3{font-size:1rem!important;line-height:1.35;min-height:2.7rem;overflow-wrap:anywhere}
 [class*="st-key-badge-card-"] [data-testid="stMarkdownContainer"] p{font-size:.8rem}
 @media(max-width:640px){[class*="st-key-badge-card-"]{min-height:0;height:auto}}
+[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"]){display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:1rem}
+[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"])>[data-testid="stColumn"]{width:100%!important;min-width:0!important}
+[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"])>[data-testid="stColumn"]>[data-testid="stVerticalBlock"]{height:100%}
+@media(max-width:900px){[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"]){grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"]){grid-template-columns:1fr}}
