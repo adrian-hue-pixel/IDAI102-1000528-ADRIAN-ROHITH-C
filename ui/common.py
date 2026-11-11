@@ -475,7 +475,11 @@ def page_header(
     action_label: str | None = None,
     action_page: str | None = None,
 ) -> None:
-    st.markdown('<a class="skip-link" href="#main-content">Skip to content</a>', unsafe_allow_html=True)
+    history = st.session_state.get("app_navigation_history", [])
+    if st.button("← Back", key="workspace_back", disabled=len(history) < 2):
+        history.pop()
+        previous = history.pop()
+        st.switch_page(st.session_state.app_navigation_pages[previous])
     render_undo_control()
     if title == "Home":
         with st.container(key="studio-home-header"):

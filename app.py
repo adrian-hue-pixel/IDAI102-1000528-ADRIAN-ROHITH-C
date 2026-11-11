@@ -85,6 +85,11 @@ pages = [
 ]
 
 page = st.navigation(pages, position="hidden")
+st.session_state.app_navigation_pages = {item.title: item for item in pages}
+history = st.session_state.setdefault("app_navigation_history", [])
+if not history or history[-1] != page.title:
+    history.append(page.title)
+    del history[:-30]
 render_topbar(
     "Impact Lab"
     if page.title in {"Research tools", "Research feedback", "Ask Tilly"}
