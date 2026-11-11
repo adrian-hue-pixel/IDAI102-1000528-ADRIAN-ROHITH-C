@@ -22,6 +22,7 @@ def render() -> None:
         with action:
             st.page_link("views/research.py", label="Open research tools →")
         st.page_link("views/research_feedback.py", label="Share study feedback", icon=":material/chat_bubble_outline:")
+    st.page_link("views/ask_tilly.py", label="Ask Tilly →", icon=":material/chat_bubble_outline:")
     state = st.session_state
     month = state.view_month
     purchases = state.purchase_month_index.get(month, [])

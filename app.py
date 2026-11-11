@@ -72,6 +72,7 @@ pages = [
         icon=":material/settings:",
         url_path="settings-about",
     ),
+    st.Page("views/ask_tilly.py", title="Ask Tilly", url_path="ask-tilly"),
     st.Page(
         "views/research.py",
         title="Research tools",
@@ -86,12 +87,12 @@ pages = [
 page = st.navigation(pages, position="hidden")
 render_topbar(
     "Impact Lab"
-    if page.title in {"Research tools", "Research feedback"}
+    if page.title in {"Research tools", "Research feedback", "Ask Tilly"}
     else page.title,
     [
         item
         for item in pages
-        if item.title not in {"Research tools", "Research feedback"}
+        if item.title not in {"Research tools", "Research feedback", "Ask Tilly"}
     ],
 )
 with st.container(key=f"route-view-{page.url_path or 'home'}"):

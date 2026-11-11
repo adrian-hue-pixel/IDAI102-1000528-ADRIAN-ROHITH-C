@@ -407,6 +407,7 @@ def render() -> None:
         else:
             st.caption("Your first entry starts the journey.")
         st.page_link("views/garden_badges.py", label="Visit your garden →")
+        st.page_link("views/ask_tilly.py", label="Ask Tilly →")
 
     with st.container(key="home-progress-row"):
         plant_col, trail_col, idea_col = st.columns([1, 1, 1.25], vertical_alignment="top")
