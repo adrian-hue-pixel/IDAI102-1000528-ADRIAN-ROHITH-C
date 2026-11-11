@@ -266,7 +266,7 @@ Experiment exports include inputs, seed, dataset version/hash and recorded resul
 
 The opt-in research export excludes detailed amounts by default. Classifier text corrections require separate consent and are not automatically included in that export.
 
-A [GitHub issue form](.github/ISSUE_TEMPLATE/research-feedback.yml) also exists. GitHub submissions are public and attributable to an account; they must not be described as anonymous.
+A [GitHub issue form](.github/ISSUE_TEMPLATE/research-feedback.yml) also exists. GitHub submissions are attributable to an account and follow the repository’s visibility: visible to authorized collaborators while private, and public if the repository becomes public. They must not be described as anonymous.
 
 Everyday and research journals use separate browser storage keys. On a hosted Streamlit deployment, session inputs are processed by its server. AI requests additionally reach Groq after consent. Download backups before clearing browser data or moving devices.
 
