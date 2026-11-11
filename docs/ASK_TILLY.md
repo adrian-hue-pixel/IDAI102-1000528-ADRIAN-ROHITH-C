@@ -8,7 +8,7 @@ Create a dedicated ShopImpact key in [Google AI Studio](https://aistudio.google.
 
 ```toml
 GEMINI_API_KEY = "replace locally with your key"
-GEMINI_MODEL = "gemini-3.5-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 ```
 
 Environment variables with these names also work and take precedence. On Streamlit Community Cloud, configure the same entries through the deployment's Secrets settings. Never put a key in Git, a browser URL, a screenshot or a chat message. Model access depends on your account; change GEMINI_MODEL to an available compatible model if required. Restart the app after changing server secrets.

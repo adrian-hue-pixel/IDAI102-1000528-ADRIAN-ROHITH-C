@@ -74,7 +74,10 @@ def test_api_errors_do_not_echo_provider_response_or_credentials():
 
 
 def test_chat_renders_without_a_key_and_preserves_original_navigation(monkeypatch):
+    import streamlit as st
+
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.setattr(st, "secrets", {})
     a = AppTest.from_file(
         str(Path(__file__).resolve().parents[1] / "app.py"), default_timeout=15
     )
@@ -87,3 +90,22 @@ def test_chat_renders_without_a_key_and_preserves_original_navigation(monkeypatc
     a.switch_page("views/home.py").run()
     assert not a.exception
     assert any("Meet Tilly" in w.value for w in a.markdown)
+
+
+def test_project_billing_error_is_actionable_without_echoing_provider_body():
+    import io
+
+    def opener(*args, **kwargs):
+        raise HTTPError(
+            "url",
+            403,
+            "denied",
+            {},
+            io.BytesIO(
+                b'{"error":{"message":"The Gemini API free tier is not available for this project. PRIVATE"}}'
+            ),
+        )
+
+    with pytest.raises(ValueError, match="configure Gemini billing") as result:
+        generate("Hi", [], {}, "key", opener=opener)
+    assert "PRIVATE" not in str(result.value)

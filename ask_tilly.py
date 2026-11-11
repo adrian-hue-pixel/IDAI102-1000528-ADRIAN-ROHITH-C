@@ -86,7 +86,7 @@ def reserve_call(now=None):
 
 
 def generate(
-    question, history, context, api_key, model="gemini-3.5-flash", opener=urlopen
+    question, history, context, api_key, model="gemini-2.5-flash", opener=urlopen
 ):
     if not api_key:
         raise ValueError("Gemini is not connected yet.")
@@ -146,6 +146,10 @@ def generate(
             404: "The configured model is unavailable for this account.",
             429: "Gemini's quota is reached. Please try later.",
         }.get(exc.code, "Gemini is temporarily unavailable. Please try later.")
+        if exc.code == 403:
+            body = (exc.read(65536) or b"").decode("utf-8", errors="replace")
+            if "free tier is not available" in body.lower():
+                message = "Google has disabled the free tier for this project. The project owner must configure Gemini billing before Tilly can answer."
         raise ValueError(message) from None
     except (
         URLError,

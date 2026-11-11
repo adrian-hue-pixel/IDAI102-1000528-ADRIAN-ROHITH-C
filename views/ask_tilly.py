@@ -38,7 +38,7 @@ def render():
             "AI answers can be wrong. Tilly explains the app's results and cannot change your journal."
         )
     key = configuration("GEMINI_API_KEY")
-    model = configuration("GEMINI_MODEL", "gemini-3.5-flash")
+    model = configuration("GEMINI_MODEL", "gemini-2.5-flash")
     state.setdefault("tilly_messages", [])
     state.setdefault("tilly_call_times", [])
     share = st.checkbox(
