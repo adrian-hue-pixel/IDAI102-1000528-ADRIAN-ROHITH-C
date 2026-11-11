@@ -37,8 +37,8 @@ def render():
         st.caption(
             "AI answers can be wrong. Tilly explains the app's results and cannot change your journal."
         )
-    key = configuration("GEMINI_API_KEY")
-    model = configuration("GEMINI_MODEL", "gemini-2.5-flash")
+    key = configuration("GROQ_API_KEY")
+    model = configuration("GROQ_MODEL", "openai/gpt-oss-120b")
     state.setdefault("tilly_messages", [])
     state.setdefault("tilly_call_times", [])
     share = st.checkbox(
@@ -50,12 +50,12 @@ def render():
         state.tilly_scope = scope
     context = context_for(state.purchases, state.view_month, share)
     st.caption(
-        "Sending a question sends its text and this conversation to Google Gemini. If enabled, the category summary is included too. Brands, notes, exact dates, prices and receipts are excluded from the automatic summary. Chat stays in this session and is not saved to your journal."
+        "Sending a question sends its text and this conversation to Groq. If enabled, the category summary is included too. Brands, notes, exact dates, prices and receipts are excluded from the automatic summary. Chat stays in this session and is not saved to your journal."
     )
     with st.expander("Preview what Tilly can see"):
         st.json(context)
     consent = st.checkbox(
-        "I agree to send my questions and the previewed context to Google Gemini",
+        "I agree to send my questions and the previewed context to Groq",
         key="tilly_consent",
     )
     if st.button("Clear conversation"):
@@ -63,7 +63,7 @@ def render():
         st.rerun()
     if not key:
         st.info(
-            "Tilly is ready for a connection. The app owner needs to configure a Gemini API key before chat is enabled."
+            "Tilly is ready for a connection. The app owner needs to configure a Groq API key before chat is enabled."
         )
     st.caption(
         "Try: ‘What does mapping sensitivity mean?’ · ‘Why can cheap products get lower estimates?’ · ‘How does the budget planner work?’"

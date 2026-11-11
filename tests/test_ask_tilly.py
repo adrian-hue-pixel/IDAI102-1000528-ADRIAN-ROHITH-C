@@ -6,7 +6,8 @@ from urllib.error import HTTPError
 import pytest
 from streamlit.testing.v1 import AppTest
 
-from ask_tilly import context_for, generate
+from ask_tilly import _generate_gemini as generate
+from ask_tilly import context_for
 
 
 def test_summary_minimizes_data_and_is_opt_in():
@@ -76,7 +77,7 @@ def test_api_errors_do_not_echo_provider_response_or_credentials():
 def test_chat_renders_without_a_key_and_preserves_original_navigation(monkeypatch):
     import streamlit as st
 
-    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
     monkeypatch.setattr(st, "secrets", {})
     a = AppTest.from_file(
         str(Path(__file__).resolve().parents[1] / "app.py"), default_timeout=15
@@ -86,7 +87,7 @@ def test_chat_renders_without_a_key_and_preserves_original_navigation(monkeypatc
     a.run().switch_page("views/ask_tilly.py").run()
     assert not a.exception
     assert a.chat_input[0].disabled
-    assert any("configure a Gemini" in i.value for i in a.info)
+    assert any("configure a Groq" in i.value for i in a.info)
     a.switch_page("views/home.py").run()
     assert not a.exception
     assert any("Meet Tilly" in w.value for w in a.markdown)
