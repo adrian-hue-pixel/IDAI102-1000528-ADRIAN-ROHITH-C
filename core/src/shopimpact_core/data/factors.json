@@ -1,0 +1,433 @@
+{
+  "Clothing": [
+    {
+      "code": "315220",
+      "name": "Men's and Boys' Cut and Sew Apparel Manufacturing",
+      "value": 0.12,
+      "useeio": "315000",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Leather Shoes": [
+    {
+      "code": "316210",
+      "name": "Footwear Manufacturing",
+      "value": 0.282,
+      "useeio": "316000",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Sneakers": [
+    {
+      "code": "316210",
+      "name": "Footwear Manufacturing",
+      "value": 0.282,
+      "useeio": "316000",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Smartphone": [
+    {
+      "code": "334220",
+      "name": "Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing",
+      "value": 0.111,
+      "useeio": "334220",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Laptop / Computer": [
+    {
+      "code": "334111",
+      "name": "Electronic Computer Manufacturing",
+      "value": 0.058,
+      "useeio": "334111",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Home Appliance": [
+    {
+      "code": "335210",
+      "name": "Small Electrical Appliance Manufacturing",
+      "value": 0.157,
+      "useeio": "335210",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "335220",
+      "name": "Major Household Appliance Manufacturing",
+      "value": 0.172,
+      "useeio": "335220",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Furniture": [
+    {
+      "code": "337121",
+      "name": "Upholstered Household Furniture Manufacturing",
+      "value": 0.188,
+      "useeio": "337121",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "337122",
+      "name": "Nonupholstered Wood Household Furniture Manufacturing",
+      "value": 0.178,
+      "useeio": "337122",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "337124",
+      "name": "Metal Household Furniture Manufacturing",
+      "value": 0.227,
+      "useeio": "33712N",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "337127",
+      "name": "Institutional Furniture Manufacturing",
+      "value": 0.246,
+      "useeio": "337127",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "337211",
+      "name": "Wood Office Furniture Manufacturing",
+      "value": 0.24,
+      "useeio": "33721A",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "337910",
+      "name": "Mattress Manufacturing",
+      "value": 0.173,
+      "useeio": "337900",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Groceries - Meat & Dairy": [
+    {
+      "code": "311511",
+      "name": "Fluid Milk Manufacturing",
+      "value": 0.803,
+      "useeio": "31151A",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311513",
+      "name": "Cheese Manufacturing",
+      "value": 0.969,
+      "useeio": "311513",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311514",
+      "name": "Dry, Condensed, and Evaporated Dairy Product Manufacturing",
+      "value": 0.642,
+      "useeio": "311514",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311520",
+      "name": "Ice Cream and Frozen Dessert Manufacturing",
+      "value": 0.58,
+      "useeio": "311520",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311611",
+      "name": "Animal (except Poultry) Slaughtering",
+      "value": 1.12,
+      "useeio": "31161A",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311615",
+      "name": "Poultry Processing",
+      "value": 0.391,
+      "useeio": "311615",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Groceries - Plant-based": [
+    {
+      "code": "311211",
+      "name": "Flour Milling",
+      "value": 0.769,
+      "useeio": "311210",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311230",
+      "name": "Breakfast Cereal Manufacturing",
+      "value": 0.473,
+      "useeio": "311230",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311411",
+      "name": "Frozen Fruit, Juice, and Vegetable Manufacturing",
+      "value": 0.485,
+      "useeio": "311410",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311421",
+      "name": "Fruit and Vegetable Canning",
+      "value": 0.381,
+      "useeio": "311420",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311811",
+      "name": "Retail Bakeries",
+      "value": 0.253,
+      "useeio": "311810",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "311911",
+      "name": "Roasted Nuts and Peanut Butter Manufacturing",
+      "value": 0.372,
+      "useeio": "311910",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Books & Stationery": [
+    {
+      "code": "322230",
+      "name": "Stationery Product Manufacturing",
+      "value": 0.296,
+      "useeio": "322230",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    },
+    {
+      "code": "323117",
+      "name": "Books Printing",
+      "value": 0.236,
+      "useeio": "323110",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Cosmetics & Personal Care": [
+    {
+      "code": "325620",
+      "name": "Toilet Preparation Manufacturing",
+      "value": 0.194,
+      "useeio": "325620",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Cleaning Products": [
+    {
+      "code": "325611",
+      "name": "Soap and Other Detergent Manufacturing",
+      "value": 0.355,
+      "useeio": "325610",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Toys & Games": [
+    {
+      "code": "339930",
+      "name": "Doll, Toy, and Game Manufacturing",
+      "value": 0.146,
+      "useeio": "339930",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ],
+  "Coffee & Tea": [
+    {
+      "code": "311920",
+      "name": "Coffee and Tea Manufacturing",
+      "value": 0.353,
+      "useeio": "311920",
+      "source": "https://doi.org/10.23719/1531143",
+      "region": "US",
+      "year": 2022,
+      "currency": "USD",
+      "price_year": 2022,
+      "dataset": "EPA SC-GHG v1.3.0",
+      "boundary": "supply chain with purchaser margins"
+    }
+  ]
+}

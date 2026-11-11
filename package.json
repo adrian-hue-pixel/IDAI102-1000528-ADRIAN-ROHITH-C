@@ -1,0 +1,11 @@
+{
+  "name": "shopimpact-browser-tests",
+  "private": true,
+  "scripts": {
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.55.0"
+  }
+}

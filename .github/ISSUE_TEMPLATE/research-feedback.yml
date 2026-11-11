@@ -1,0 +1,35 @@
+name: Public research feedback
+description: Share task feedback without personal or purchase details
+title: "[Research feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: "This response will be PUBLIC. Do not include names, contact details, receipts, payment information or purchase amounts."
+  - type: dropdown
+    id: task
+    attributes:
+      label: Task attempted
+      options: [Log a purchase, Understand uncertainty, Compare methods, Use the planner]
+    validations:
+      required: true
+  - type: dropdown
+    id: ease
+    attributes:
+      label: Task ease (1 hard to 5 easy)
+      options: ['1','2','3','4','5']
+    validations:
+      required: true
+  - type: dropdown
+    id: clarity
+    attributes:
+      label: Clarity of limitations (1 unclear to 5 clear)
+      options: ['1','2','3','4','5']
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I understand this response is public and voluntarily submit these ratings for the project study.
+          required: true

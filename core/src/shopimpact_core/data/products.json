@@ -1,0 +1,44 @@
+[
+  {
+    "id": "iphone15-128",
+    "name": "iPhone 15 128GB",
+    "category": "Smartphone",
+    "price": 799,
+    "price_year": 2023,
+    "lca_kg": 56,
+    "source": "https://www.apple.com/environment/pdf/products/iphone/iPhone_15_and_iPhone_15_Plus_PER_Sept2023.pdf",
+    "price_source": "https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/",
+    "report_year": 2023,
+    "region": "US configuration",
+    "boundary": "manufacturer cradle-to-grave",
+    "reported_parameter_uncertainty": null
+  },
+  {
+    "id": "iphone15plus-128",
+    "name": "iPhone 15 Plus 128GB",
+    "category": "Smartphone",
+    "price": 899,
+    "price_year": 2023,
+    "lca_kg": 61,
+    "source": "https://www.apple.com/environment/pdf/products/iphone/iPhone_15_and_iPhone_15_Plus_PER_Sept2023.pdf",
+    "price_source": "https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/",
+    "report_year": 2023,
+    "region": "US configuration",
+    "boundary": "manufacturer cradle-to-grave",
+    "reported_parameter_uncertainty": null
+  },
+  {
+    "id": "mba-m2-256",
+    "name": "MacBook Air M2 256GB (2022)",
+    "category": "Laptop / Computer",
+    "price": 1199,
+    "price_year": 2022,
+    "lca_kg": 147,
+    "source": "https://www.apple.com/environment/pdf/products/notebooks/M2_MacBook_Air_PER_June2022.pdf",
+    "price_source": "https://www.apple.com/newsroom/2022/06/apple-unveils-all-new-macbook-air-supercharged-by-the-new-m2-chip/",
+    "report_year": 2022,
+    "region": "US configuration",
+    "boundary": "manufacturer cradle-to-grave",
+    "reported_parameter_uncertainty": null
+  }
+]

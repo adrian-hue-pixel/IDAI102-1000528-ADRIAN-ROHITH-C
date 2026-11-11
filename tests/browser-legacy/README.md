@@ -1,0 +1,1 @@
+Historical studio test snapshots are retained here for reference. The active browser suite in `tests/browser` now checks the complete restored app, turtle illustrations and embedded research tools through `app.py`.

@@ -1,0 +1,15 @@
+{
+  "version": "2026.11.2",
+  "epa_sha256": "6025a14c4fe16675735efba1683030e4d36011e3973f3c4261f8231aa69c002f",
+  "source_url": "https://pasteur.epa.gov/uploads/10.23719/1531143/SupplyChainGHGEmissionFactors_v1.3.0_NAICS_CO2e_USD2022.csv",
+  "mapping": "Analyst-selected manufacturing sectors including purchaser margins; equal weights across unique USEEIO commodities, not expenditure shares.",
+  "uncertainty": "Mapping sensitivity only; point factors have no published parameter distribution. No fabricated confidence interval.",
+  "regions_available": [
+    "US"
+  ],
+  "regions_unavailable": {
+    "IN": "No validated INR-native factor set bundled.",
+    "EU": "No validated EU factor set bundled."
+  },
+  "cpi_snapshot": "cpi.json"
+}

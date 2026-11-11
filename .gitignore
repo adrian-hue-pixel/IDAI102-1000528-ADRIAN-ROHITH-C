@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+.DS_Store
+__MACOSX/
+node_modules/
+test-results/
+playwright-report/
+
+# Keep the unfinished top-level README local until it is ready.
+/README.md
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# Generated Python package artifacts
+build/
+dist/
+*.egg-info/
