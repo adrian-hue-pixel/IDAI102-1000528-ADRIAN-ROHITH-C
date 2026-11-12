@@ -40,6 +40,7 @@ def _purchase(
 
 def _purchases_app(purchases: list[dict]) -> AppTest:
     app = AppTest.from_file(APP_PATH)
+    app.session_state["guest_access"] = True
     app.session_state["browser_storage_loaded"] = True
     app.session_state["storage_available"] = False
     app.session_state["storage_error"] = "Browser storage is unavailable in AppTest."
@@ -61,7 +62,9 @@ def test_corrupt_saved_state_stays_locked_without_writing(monkeypatch):
         "write_saved_value",
         lambda value: (writes.append(value) or True, None),
     )
-    app = AppTest.from_file(APP_PATH).run()
+    app = AppTest.from_file(APP_PATH)
+    app.session_state["guest_access"] = True
+    app.run()
 
     assert app.session_state["raw_saved_state"] == raw
     assert app.session_state["persistence_locked"] is True
@@ -157,7 +160,9 @@ def test_viewer_timezone_rollover_updates_default_month_and_date_picker(monkeypa
     assert common.app_today() == dt.date(2027, 1, 1)
 
     monkeypatch.setattr(common, "app_today", lambda: dt.date(2027, 1, 1))
-    app = AppTest.from_file(APP_PATH).run()
+    app = AppTest.from_file(APP_PATH)
+    app.session_state["guest_access"] = True
+    app.run()
     date_picker = next(
         widget for widget in app.date_input if widget.label == "Purchase date"
     )

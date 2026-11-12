@@ -97,6 +97,86 @@ def test_account_ui_login_and_logout_clear_chat(monkeypatch):
     assert not at.error, [e.value for e in at.error]
     assert at.session_state['account_session']['user_id'] == 'test-user'
     assert 'tilly_messages' not in at.session_state
+    at.switch_page('views/account.py').run()
     next(b for b in at.button if b.label == 'Log out').click().run()
     assert not at.exception
     assert 'account_session' not in at.session_state
+
+
+def entry_app():
+    from pathlib import Path
+
+    from streamlit.testing.v1 import AppTest
+
+    app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / 'app.py'), default_timeout=20)
+    app.session_state['browser_storage_loaded'] = True
+    app.session_state['storage_available'] = False
+    return app.run().switch_page('views/account.py').run()
+
+
+@pytest.mark.parametrize('route', [
+    'views/home.py', 'views/dashboard.py', 'views/purchases.py', 'views/swaps_plan.py',
+    'views/impact_lab.py', 'views/garden_badges.py', 'views/month_review.py',
+    'views/settings_about.py', 'views/ask_tilly.py', 'views/research.py', 'views/research_feedback.py',
+])
+def test_every_route_requires_an_explicit_entry_choice(route):
+    app = entry_app().switch_page(route).run()
+    assert not app.exception
+    assert any(button.label == 'Continue as guest' for button in app.button)
+    assert any(heading.value == 'Welcome back' for heading in app.subheader)
+    assert len(app.sidebar.get('page_link')) == 0
+    assert len(app.chat_input) == 0
+    assert 'guest_access' not in app.session_state
+    assert 'account_session' not in app.session_state
+
+
+def test_guest_choice_opens_requested_route_and_survives_internal_navigation():
+    app = entry_app().switch_page('views/dashboard.py').run()
+    app.switch_page('views/account.py').run()
+    next(button for button in app.button if button.label == 'Continue as guest').click().run()
+    assert not app.exception
+    assert app.session_state['guest_access'] is True
+    assert any(heading.value == 'Dashboard' for heading in app.title)
+    app.switch_page('views/purchases.py').run()
+    assert any(heading.value == 'Purchases' for heading in app.title)
+    assert len(app.sidebar.get('page_link')) >= 8
+    # A fresh visit cannot inherit guest admission from the journal or another session.
+    fresh = entry_app()
+    assert any(button.label == 'Continue as guest' for button in fresh.button)
+
+
+def test_expired_session_returns_to_entry_screen(monkeypatch):
+    import ui.account
+
+    class ExpiredClient:
+        def refresh(self, token):
+            raise AuthError('Session expired.')
+
+    monkeypatch.setattr(ui.account, 'client', lambda: ExpiredClient())
+    app = entry_app()
+    app.session_state['account_session'] = {'expires_at':0, 'refresh_token':'expired'}
+    app.switch_page('views/dashboard.py').run()
+    assert not app.exception
+    assert 'account_session' not in app.session_state
+    assert any(button.label == 'Continue as guest' for button in app.button)
+
+
+def test_unconfirmed_signup_does_not_admit_user(monkeypatch):
+    import ui.account
+
+    class SignupClient:
+        def signup(self, email, password):
+            return {'user': {'id': 'pending'}}
+
+    monkeypatch.setattr(ui.account, 'client', lambda: SignupClient())
+    app = entry_app()
+    next(r for r in app.radio if r.label == 'Account access').set_value('Sign up').run()
+    app.text_input[0].set_value('test@example.com')
+    app.text_input[1].set_value('a long test password')
+    app.text_input[2].set_value('a long test password')
+    next(button for button in app.button if button.label == 'Create account').click().run()
+    assert not app.exception
+    assert 'account_session' not in app.session_state
+    assert 'guest_access' not in app.session_state
+    assert len(app.sidebar.get('page_link')) == 0
+    assert any('Check your email' in message.value for message in app.success)

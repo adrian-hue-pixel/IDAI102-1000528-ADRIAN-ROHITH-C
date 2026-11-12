@@ -10,6 +10,7 @@ APP = Path(__file__).resolve().parents[1] / "app.py"
 
 def app():
     a = AppTest.from_file(str(APP), default_timeout=15)
+    a.session_state["guest_access"] = True
     a.session_state["browser_storage_loaded"] = True
     a.session_state["storage_available"] = False
     a.session_state["research_loaded"] = True

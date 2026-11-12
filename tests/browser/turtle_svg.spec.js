@@ -31,6 +31,7 @@ async function seedAndOpen(page, route = "/", mode = "Dark") {
     if (localStorage.getItem(key) === null) localStorage.setItem(key, initialState);
   }, savedState(mode));
   await page.goto(`${base}${route}`);
+  await page.getByRole("button", { name: "Continue as guest", exact: true }).click();
   const retryStorage = page.getByRole("button", {
     name: "Retry loading saved data",
   });

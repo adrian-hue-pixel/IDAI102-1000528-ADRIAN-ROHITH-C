@@ -82,6 +82,7 @@ def test_chat_renders_without_a_key_and_preserves_original_navigation(monkeypatc
     a = AppTest.from_file(
         str(Path(__file__).resolve().parents[1] / "app.py"), default_timeout=15
     )
+    a.session_state["guest_access"] = True
     a.session_state["browser_storage_loaded"] = True
     a.session_state["storage_available"] = False
     a.run().switch_page("views/ask_tilly.py").run()

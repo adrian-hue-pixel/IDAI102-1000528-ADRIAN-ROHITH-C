@@ -31,7 +31,7 @@ def make_app_test(
 ):
     """Run without browser storage; AppTest has no embedded browser component."""
     app = AppTest.from_file(APP_PATH)
-    app.session_state["browser_storage_loaded"] = True
+    app.session_state["guest_access"] = True
     app.session_state["browser_storage_loaded"] = True
     app.session_state["storage_available"] = storage_available
     app.session_state["storage_error"] = (
@@ -1648,6 +1648,7 @@ def test_unrestored_browser_data_is_locked_and_never_written(monkeypatch, saved)
         bs, "write_saved_value", lambda value: (writes.append(value) or True, None)
     )
     app = AppTest.from_file(APP_PATH)
+    app.session_state["guest_access"] = True
     app.session_state["browser_storage_loaded"] = False
 
     app.run()

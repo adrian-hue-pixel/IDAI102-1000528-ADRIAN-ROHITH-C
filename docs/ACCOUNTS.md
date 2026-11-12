@@ -1,6 +1,6 @@
 # ShopImpact accounts
 
-Optional email sign-up and login use Supabase Auth. Guests retain the existing full app. The sidebar opens **Log in / Sign up**. New accounts require a password of at least 12 characters and provider-managed email confirmation. Log out revokes the current refresh session and clears local session credentials.
+Every fresh session requires an explicit Log in, Sign up or Continue as guest choice before any feature is rendered. Email sign-up and login use Supabase Auth. Guest admission is session-only and is never restored from browser journal storage. Direct feature links resume their requested destination after admission. Guests retain the existing full app. The sidebar opens **Log in / Sign up**. New accounts require a password of at least 12 characters and provider-managed email confirmation. Log out revokes the current refresh session and clears local session credentials and guest admission, returning to the entry screen. Failed session refresh also returns to entry.
 
 ## Deployment
 

@@ -101,7 +101,7 @@ Choose appearance, currency display, goal and accessibility preferences. Downloa
 
 ### Account access
 
-The sidebar's **Log in / Sign up** link opens a minimal account form with email, password and a guest option. New accounts require a password of at least 12 characters and email confirmation. While signed in, open **Your account → Log out** to end the session.
+Every fresh session opens the minimal account screen. Choose **Log in**, **Sign up**, or **Continue as guest** before accessing any feature. Direct feature links also require this choice, then resume the requested page. Guest admission lasts only for the current session. New accounts require a password of at least 12 characters and email confirmation. While signed in, open **Your account → Log out** to end the session and return to the entry screen. Expired sessions that cannot refresh also return there.
 
 Supabase manages authentication, and a dedicated SMTP2GO connection sends confirmation emails. Password forms clear after submission; access and refresh tokens stay in the Streamlit session rather than the saved journal. An actual signup confirmation reached the maintainer on **12 November 2026**.
 
@@ -350,7 +350,7 @@ The interval is mapping sensitivity, not a full confidence interval. See the [co
 
 Last recorded local verification, **12 November 2026**:
 
-- **547 Python tests passed.** Coverage includes journal validation, persistence, imports/exports, state transitions, research arithmetic, source integrity, shared-factor simulation, replay, planner optimality, classifier behaviour, AI request handling, account validation, safe authentication errors and login/logout state transitions.
+- **561 Python tests passed.** Coverage includes journal validation, persistence, imports/exports, state transitions, research arithmetic, source integrity, shared-factor simulation, replay, planner optimality, classifier behaviour, AI request handling, account validation, safe authentication errors login/logout state transitions, required entry choices, deep-link gating and guest-session boundaries.
 - **Ruff checks passed for the changed account and shared application files.**
 - **Live Groq replies verified**, including an answer through the real Ask Tilly interface. This is a connection smoke test, not a completed chatbot accuracy evaluation.
 - **Deployed account screen verified.** Signup confirmation reached the maintainer through Supabase and SMTP2GO. This confirms delivery to one inbox, not every email provider.

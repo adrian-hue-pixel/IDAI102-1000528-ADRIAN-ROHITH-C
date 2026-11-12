@@ -5,6 +5,7 @@ async function open(page, route, mode='Light') {
     localStorage.setItem('shopimpact_saved_state_v1',JSON.stringify({version:3,purchases_csv:'date,product_type,brand,condition,packaging,price_usd,co2e_kg,recurring,recurring_group,source\n',guide_dismissed:true,achievements:[],plans:[],settings:{display_mode:mode}}));
   },mode);
   await page.goto(route);
+  await page.getByRole('button',{name:'Continue as guest',exact:true}).click();
   await expect(page.locator('.studio-scene')).toBeAttached();
   await expect(page.getByRole('heading',{level:1}).first()).toBeAttached();
   await expect(page.locator('[data-testid="stApp"]')).toHaveAttribute('data-test-script-state','notRunning');

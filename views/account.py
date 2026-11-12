@@ -2,7 +2,13 @@
 import streamlit as st
 
 from account_auth import AuthError, session_from_response
-from ui.account import attempt_allowed, clear_session, client, current_session
+from ui.account import (
+    attempt_allowed,
+    clear_session,
+    client,
+    current_session,
+    enter_workspace,
+)
 
 
 def render():
@@ -13,7 +19,7 @@ def render():
             session = current_session()
         except AuthError as exc:
             st.error(str(exc))
-            return
+            api, session = None, None
         with st.container(border=True, key='account-form'):
             if session:
                 st.subheader('Welcome back')
@@ -51,9 +57,10 @@ def render():
                             response = api.login(email, password) if mode == 'Log in' else api.signup(email, password)
                         if response.get('access_token'):
                             session = session_from_response(response)
+                            destination = st.session_state.get('entry_destination', 'Home')
                             clear_session()
                             st.session_state.account_session = session
-                            st.rerun()
+                            enter_workspace(destination=destination)
                         else:
                             st.success('Check your email to confirm your account, then return to log in. Already registered? Use Log in.')
                     except AuthError as exc:
@@ -61,7 +68,7 @@ def render():
         if st.session_state.get('account_logout_notice'):
             st.info(st.session_state.pop('account_logout_notice'))
         if st.button('Continue to app' if session else 'Continue as guest', type='tertiary', key='account_guest', use_container_width=True):
-            st.switch_page('views/home.py')
+            enter_workspace(as_guest=session is None)
         st.caption('Your journal stays in this browser.')
         with st.expander('Privacy and storage'):
             st.write('Accounts use Supabase for authentication. Purchase journals are stored in this browser and do not sync or become private by account. Other users of a shared browser can access its local journal.')

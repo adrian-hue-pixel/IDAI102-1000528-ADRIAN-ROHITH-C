@@ -36,7 +36,7 @@ def current_session():
 def clear_session():
     # Authentication and optional shared AI context never cross account boundaries.
     for key in list(st.session_state):
-        if key in {'account_session', 'tilly_messages', 'tilly_scope', 'tilly_share', 'tilly_consent'} or key.startswith('auth_'):
+        if key in {'account_session', 'guest_access', 'entry_destination', 'app_navigation_history', 'tilly_messages', 'tilly_scope', 'tilly_share', 'tilly_consent'} or key.startswith('auth_'):
             del st.session_state[key]
 
 
@@ -47,3 +47,21 @@ def attempt_allowed():
         raise AuthError('Please wait five minutes before trying again.')
     attempts.append(now)
     st.session_state.account_attempts = attempts
+
+
+def has_workspace_access():
+    """Admission is session-only, from authenticated identity or an explicit guest choice."""
+    try:
+        return current_session() is not None or st.session_state.get('guest_access') is True
+    except AuthError:
+        clear_session()
+        return False
+
+
+def enter_workspace(*, as_guest=False, destination=None):
+    """Admit a guest explicitly, then resume the originally requested page."""
+    if as_guest:
+        st.session_state.guest_access = True
+    title = destination or st.session_state.pop('entry_destination', 'Home')
+    page = st.session_state.get('app_navigation_pages', {}).get(title)
+    st.switch_page(page or 'views/home.py')
