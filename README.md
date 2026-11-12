@@ -1,6 +1,9 @@
 <p align="center">
   <img src="docs/shopimpact-banner.svg" alt="ShopImpact: a personal consumption journal and experiment workspace" width="100%">
 </p>
+<p align="center">
+  <a href="https://canva.link/v49hfof5yt02eqe"><strong>Presentation</strong></a>
+</p>
 
 <h1 align="center">ShopImpact</h1>
 <p align="center"><strong>A purchase journal. A place to experiment. A clearer view of everyday choices.</strong></p>
@@ -18,9 +21,10 @@
   <a href="#14-installation">Get started</a>
 </p>
 
+**Live app:** [shopimpact-app.streamlit.app](https://shopimpact-app.streamlit.app/)<br>
 **Repository:** [adrian-hue-pixel/ShopImpact](https://github.com/adrian-hue-pixel/ShopImpact)  
 **Maintainer:** [adrian-hue-pixel](https://github.com/adrian-hue-pixel)  
-**Stack:** Python · Streamlit · Pandas · Altair · Groq · Turtle-generated SVG
+**Stack:** Python · Streamlit · Pandas · Altair · Groq · Supabase Auth · SMTP2GO · Turtle-generated SVG
 
 > **Two models, clearly labelled.** The everyday journal retains its illustrative footprint model. The research toolkit uses a separate, versioned EPA dataset. Historical journal entries are never silently converted into research evidence. Estimates support exploration; they are not measured product emissions or sustainability certifications.
 
@@ -95,6 +99,14 @@ Review a monthly narrative, add reflection notes and export summaries, including
 
 Choose appearance, currency display, goal and accessibility preferences. Download backups, preview a restore and inspect the everyday model's limitations and storage behaviour.
 
+### Account access
+
+The sidebar's **Log in / Sign up** link opens a minimal account form with email, password and a guest option. New accounts require a password of at least 12 characters and email confirmation. While signed in, open **Your account → Log out** to end the session.
+
+Supabase manages authentication, and a dedicated SMTP2GO connection sends confirmation emails. Password forms clear after submission; access and refresh tokens stay in the Streamlit session rather than the saved journal. An actual signup confirmation reached the maintainer on **12 November 2026**.
+
+Accounts currently authenticate identity only. **Journals remain browser-local: they do not sync across devices or become private by account.** Other users of a shared browser can still access its local journal. Guest access keeps the everyday tools available without an account. See [account setup and privacy](docs/ACCOUNTS.md).
+
 ## 6. Research tools
 
 Research lives inside **Impact Lab → Open research tools** and shares the app's sidebar, appearance, motion preference and selected month.
@@ -142,6 +154,7 @@ The app exposes this example, the recurrence and the nondominated frontier. Test
 - **Python Turtle and SVG:** code-generated plant, footprint and garden illustrations.
 - **Custom SVG/CSS:** Tilly, badge icons, themes, ambient effects and reduced-motion behaviour.
 - **Groq API:** Ask Tilly, currently configured with `openai/gpt-oss-120b`.
+- **Supabase Auth and SMTP2GO:** optional email/password accounts, confirmation emails and logout.
 - **Standard-library HTTP:** provider requests, authentication headers, bounded responses and timeouts.
 - **shopimpact-core:** locally installable, dependency-free research calculations and CLI.
 - **Pytest, Hypothesis, Ruff, Playwright and axe:** verification tools and browser/accessibility checks.
@@ -162,6 +175,8 @@ Browser
        │         ├─ Pinned EPA / CPI / manufacturer data
        │         ├─ Simulation, validation and optimization
        │         └─ Reproducible research journal / exports
+       ├─ Account access → views/account.py + ui/account.py
+       │    └─ account_auth.py → Supabase Auth → SMTP2GO confirmation email
        └─ Ask Tilly → ask_tilly.py
             ├─ Explicit consent and context preview
             ├─ Optional aggregate month summary
@@ -172,6 +187,7 @@ Browser
 ShopImpact/
 ├── app.py                       # Main router; original eight-page workspace
 ├── ask_tilly.py                 # Grounded chat adapter and request guards
+├── account_auth.py              # Managed email authentication and safe provider errors
 ├── research_workspace.py        # Research integration inside the app
 ├── research_app.py              # Research tool renderers and storage validation
 ├── logic.py                     # Everyday illustrative model and journal helpers
@@ -268,7 +284,7 @@ The opt-in research export excludes detailed amounts by default. Classifier text
 
 A [GitHub issue form](.github/ISSUE_TEMPLATE/research-feedback.yml) also exists. GitHub submissions are attributable to an account and follow the repository’s visibility: visible to authorized collaborators while private, and public if the repository becomes public. They must not be described as anonymous.
 
-Everyday and research journals use separate browser storage keys. On a hosted Streamlit deployment, session inputs are processed by its server. AI requests additionally reach Groq after consent. Download backups before clearing browser data or moving devices.
+Everyday and research journals use separate browser storage keys. On a hosted Streamlit deployment, session inputs are processed by its server. AI requests additionally reach Groq after consent. Submitting the login or sign-up form sends your email and password to Supabase; SMTP2GO delivers confirmation emails. Signing in does not isolate or upload the local journal. Download backups before clearing browser data or moving devices.
 
 ## 14. Installation
 
@@ -285,7 +301,7 @@ On Windows, activate with `.venv\Scripts\activate` instead. The repository is cu
 
 The core package is installed from `./core` through the requirements file. The journal, drawings, charts, research calculations and local classifier do not require an AI key. Ask Tilly remains disabled until configured.
 
-## 15. API-key configuration
+## 15. Service configuration
 
 Create a dedicated key in [GroqCloud](https://console.groq.com/keys). Add it to a **local** `.streamlit/secrets.toml` file:
 
@@ -297,6 +313,19 @@ GROQ_MODEL = "openai/gpt-oss-120b"
 Environment variables with the same names also work and take precedence. Restart the app after changing server secrets. For a hosted app, use the hosting platform's secrets settings.
 
 Never commit this file or put a real key in an issue, screenshot or README. Groq's free plan has model-dependent [rate limits](https://console.groq.com/docs/rate-limits); a working local key does not guarantee capacity for a public deployment.
+
+### Optional email accounts
+
+Add these values to the same local secrets file or to the deployment's Streamlit Secrets:
+
+```toml
+SUPABASE_URL = "https://YOUR-PROJECT.supabase.co"
+SUPABASE_PUBLISHABLE_KEY = "sb_publishable_YOUR-PUBLIC-KEY"
+```
+
+Use a publishable or legacy anon key, never a secret or service-role key. Environment variables with these names also work. Without account configuration, the form explains that setup is pending and guests can keep using the app.
+
+Keep email confirmation enabled and configure custom SMTP in **Supabase Authentication → Emails → SMTP Settings**. The live deployment uses a verified SMTP2GO sender over TLS on port 587. Its sending password is stored in Supabase's encrypted SMTP settings, outside Git and Streamlit Secrets. Provider quotas and delivery policies still apply. See [account deployment details](docs/ACCOUNTS.md).
 
 ## 16. Reusable core package
 
@@ -319,11 +348,12 @@ The interval is mapping sensitivity, not a full confidence interval. See the [co
 
 ## 17. Testing methodology and current status
 
-Last recorded local verification, **11 November 2026**:
+Last recorded local verification, **12 November 2026**:
 
-- **533 Python tests passed.** Coverage includes journal validation, persistence, imports/exports, state transitions, research arithmetic, source integrity, shared-factor simulation, replay, planner optimality, classifier behaviour and AI request handling.
-- **Ruff checks passed.**
+- **547 Python tests passed.** Coverage includes journal validation, persistence, imports/exports, state transitions, research arithmetic, source integrity, shared-factor simulation, replay, planner optimality, classifier behaviour, AI request handling, account validation, safe authentication errors and login/logout state transitions.
+- **Ruff checks passed for the changed account and shared application files.**
 - **Live Groq replies verified**, including an answer through the real Ask Tilly interface. This is a connection smoke test, not a completed chatbot accuracy evaluation.
+- **Deployed account screen verified.** Signup confirmation reached the maintainer through Supabase and SMTP2GO. This confirms delivery to one inbox, not every email provider.
 - **Browser/accessibility matrix not verified as passing.** Playwright coverage and an Ubuntu CI workflow are included; neither their presence nor the Python result proves browser or accessibility compliance.
 - **Physical-device testing and full accessibility audit remain outstanding.**
 
@@ -342,15 +372,16 @@ The active browser suite targets the original pages and embedded research routes
 
 ## 18. Deployment
 
-The app runs locally. A public deployment has not been verified for this repository.
+The app is deployed at **[shopimpact-app.streamlit.app](https://shopimpact-app.streamlit.app/)**. The account screen and Ask Tilly have received live connection checks. The full browser/accessibility matrix and physical-device audit remain outstanding.
 
 For a Streamlit Community Cloud deployment:
 
 1. Connect an account with access to this GitHub repository.
 2. Select branch `main` and entry point `app.py`.
-3. Configure `GROQ_API_KEY` and `GROQ_MODEL` in deployment secrets.
-4. Check dependency installation, storage recovery, all routes and provider quotas.
-5. Complete browser, accessibility and physical-phone checks before sharing a public link.
+3. Configure `GROQ_API_KEY` and `GROQ_MODEL` for Ask Tilly in deployment secrets.
+4. Configure `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` for optional accounts. Set the Supabase Site URL to your deployed `/account` route and configure a verified SMTP sender.
+5. Check dependency installation, storage recovery, account confirmation, all routes and provider quotas.
+6. Complete the outstanding browser, accessibility and physical-phone checks before claiming deployment-wide quality.
 
 The local secrets file does not travel with Git. A deployment must receive its key separately. See the [deployment notes](docs/DEPLOY.md) for additional project context; older documents may describe earlier versions of the app.
 
@@ -378,8 +409,3 @@ The journal gives those questions a place to live. The research tools make the m
 ---
 
 <p align="center"><strong>ShopImpact · Consumption, considered.</strong></p>
-
-
-### Optional accounts
-
-Use **Log in / Sign up** in the sidebar for Supabase-managed email accounts and logout. Guest access remains available. Journals stay browser-local and do not sync by account. The deployed app uses a dedicated SMTP2GO sender through Supabase for confirmation emails. See [account setup and privacy](docs/ACCOUNTS.md).
