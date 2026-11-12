@@ -414,10 +414,10 @@ The journal gives those questions a place to live. The research tools make the m
 
 ## 21 Credits and Acknowledgements
 
-Name of student: Adrian Rohith C
-Reg. No.: 1000528
-Mentor: Syed Ali Beema S
-Name of the school: Jain Vidyalaya
+Name of student: Adrian Rohith C<br>
+Reg. No.: 1000528<br>
+Mentor: Syed Ali Beema S<br>
+Name of the school: Jain Vidyalaya<br>
 Model Used For PPT and App Creation: Sol 6.1
 
 
