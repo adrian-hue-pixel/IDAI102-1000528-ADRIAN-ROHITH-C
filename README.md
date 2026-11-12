@@ -2,32 +2,37 @@
   <img src="docs/shopimpact-banner.svg" alt="ShopImpact: a personal consumption journal and experiment workspace" width="100%">
 </p>
 
-<p align="center">
-  <img alt="Python 3.14" src="https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white">
-  <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
-  <img alt="Ask Tilly with Groq" src="https://img.shields.io/badge/Ask_Tilly-Groq-F55036?style=for-the-badge">
-  <img alt="Pandas" src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
-  <img alt="EPA dataset v1.3.0" src="https://img.shields.io/badge/EPA_dataset-v1.3.0-32765B?style=for-the-badge">
-</p>
+<p align="center"><strong>A personal purchase journal to track spending, explore estimated footprints and compare choices.</strong></p>
 
 <h3 align="center">
   <a href="https://shopimpact-app.streamlit.app/">🌐 Live Demo</a> &nbsp;·&nbsp;
   <a href="https://canva.link/v49hfof5yt02eqe">🎞️ Presentation</a> &nbsp;·&nbsp;
   <a href="#14-installation">🚀 Get Started</a> &nbsp;·&nbsp;
-  <a href="#5-the-everyday-workspace">✨ Features</a> &nbsp;·&nbsp;
-  <a href="#6-research-tools">🧪 Research</a>
+  <a href="#5-the-everyday-workspace">✨ Features</a>
 </h3>
 
-<p align="center"><strong>Log your purchases · Understand your patterns · Test better choices · Explore with Tilly 🐢</strong></p>
+- **Log purchases:** record prices, dates and condition; edit, import or export your journal.
+- **Understand patterns:** view monthly spending, category breakdowns and estimated footprints.
+- **Explore choices:** compare alternatives, plan purchases and ask Tilly for explanations.
+- **Make it yours:** Light and Dark modes, a growing garden and optional accounts or guest entry.
+
+<details>
+<summary><strong>App screenshots — purchase entry and dashboard</strong></summary>
+
+<p align="center">
+  <img src="docs/screenshots/readme-home.png" alt="ShopImpact purchase-entry form in dark mode" width="48%">
+  <img src="docs/screenshots/readme-dashboard.png" alt="ShopImpact dashboard in dark mode with simulated purchase data" width="48%">
+</p>
+
+Screenshots show the app interface. Dashboard records are simulated test inputs; estimates are illustrative, not measured emissions.
+
+</details>
+
+**Run locally:** from the repository root, run `python -m pip install -r requirements.txt`, then `python -m streamlit run app.py`. Keep the full repository, including `core/`, alongside the entry file. Guest mode works without API keys.
+
+Research methods, data sources and validation are documented in [Research tools](#6-research-tools). [Clean-install check](docs/DEPLOYMENT.md).
 
 ---
-
-ShopImpact is your personal purchase journal and experiment workspace. Track everyday spending, explore estimated footprints, compare alternatives and ask Tilly to explain the numbers.
-
-**Built with:** Python · Streamlit · Pandas · Altair · Groq · Supabase Auth · Turtle-generated SVG<br>
-**Created by:** [adrian-hue-pixel](https://github.com/adrian-hue-pixel)
-
-> **Two models, clearly labelled.** The everyday journal uses an illustrative footprint model. Impact Lab adds a separate, versioned EPA research dataset. Estimates support exploration; they are not measured product emissions or sustainability certifications.
 
 ## 1. Introduction
 
