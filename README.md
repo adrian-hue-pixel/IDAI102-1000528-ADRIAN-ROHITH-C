@@ -1,32 +1,33 @@
 <p align="center">
   <img src="docs/shopimpact-banner.svg" alt="ShopImpact: a personal consumption journal and experiment workspace" width="100%">
 </p>
+
 <p align="center">
-  <a href="https://canva.link/v49hfof5yt02eqe"><strong>Presentation</strong></a>
+  <img alt="Python 3.14" src="https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
+  <img alt="Ask Tilly with Groq" src="https://img.shields.io/badge/Ask_Tilly-Groq-F55036?style=for-the-badge">
+  <img alt="Pandas" src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
+  <img alt="EPA dataset v1.3.0" src="https://img.shields.io/badge/EPA_dataset-v1.3.0-32765B?style=for-the-badge">
 </p>
 
-<h1 align="center">ShopImpact</h1>
-<p align="center"><strong>A purchase journal. A place to experiment. A clearer view of everyday choices.</strong></p>
-<p align="center">
-  <img alt="Python" src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white">
-  <img alt="Streamlit" src="https://img.shields.io/badge/Built_with-Streamlit-FF4B4B?logo=streamlit&logoColor=white">
-  <img alt="Groq" src="https://img.shields.io/badge/Ask_Tilly-Groq-F55036">
-  <img alt="Research dataset" src="https://img.shields.io/badge/EPA_dataset-v1.3.0-32765B">
-</p>
-<p align="center">
-  <a href="#1-introduction">Overview</a> ·
-  <a href="#5-the-everyday-workspace">Features</a> ·
-  <a href="#6-research-tools">Research</a> ·
-  <a href="#9-ask-tilly-ai-integration">Ask Tilly</a> ·
-  <a href="#14-installation">Get started</a>
-</p>
+<h3 align="center">
+  <a href="https://shopimpact-app.streamlit.app/">🌐 Live Demo</a> &nbsp;·&nbsp;
+  <a href="https://canva.link/v49hfof5yt02eqe">🎞️ Presentation</a> &nbsp;·&nbsp;
+  <a href="#14-installation">🚀 Get Started</a> &nbsp;·&nbsp;
+  <a href="#5-the-everyday-workspace">✨ Features</a> &nbsp;·&nbsp;
+  <a href="#6-research-tools">🧪 Research</a>
+</h3>
 
-**Live app:** [shopimpact-app.streamlit.app](https://shopimpact-app.streamlit.app/)<br>
-**Repository:** [adrian-hue-pixel/ShopImpact](https://github.com/adrian-hue-pixel/ShopImpact)  
-**Maintainer:** [adrian-hue-pixel](https://github.com/adrian-hue-pixel)  
-**Stack:** Python · Streamlit · Pandas · Altair · Groq · Supabase Auth · SMTP2GO · Turtle-generated SVG
+<p align="center"><strong>Log your purchases · Understand your patterns · Test better choices · Explore with Tilly 🐢</strong></p>
 
-> **Two models, clearly labelled.** The everyday journal retains its illustrative footprint model. The research toolkit uses a separate, versioned EPA dataset. Historical journal entries are never silently converted into research evidence. Estimates support exploration; they are not measured product emissions or sustainability certifications.
+---
+
+ShopImpact is your personal purchase journal and experiment workspace. Track everyday spending, explore estimated footprints, compare alternatives and ask Tilly to explain the numbers.
+
+**Built with:** Python · Streamlit · Pandas · Altair · Groq · Supabase Auth · Turtle-generated SVG<br>
+**Created by:** [adrian-hue-pixel](https://github.com/adrian-hue-pixel)
+
+> **Two models, clearly labelled.** The everyday journal uses an illustrative footprint model. Impact Lab adds a separate, versioned EPA research dataset. Estimates support exploration; they are not measured product emissions or sustainability certifications.
 
 ## 1. Introduction
 
