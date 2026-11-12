@@ -412,6 +412,14 @@ ShopImpact brings together an everyday application and an inspectable research w
 
 The journal gives those questions a place to live. The research tools make the method visible. Tilly makes it easier to ask the next question.
 
+##Credits and Acknowledgements
+
+Name of student: Adrian Rohith C
+Reg. No.: 1000528
+Mentor: Syed Ali Beema S
+Name of the school: Jain Vidyalaya
+
+
 ---
 
 <p align="center"><strong>ShopImpact · Consumption, considered.</strong></p>
