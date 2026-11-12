@@ -92,7 +92,6 @@ def test_account_ui_login_and_logout_clear_chat(monkeypatch):
     at.session_state['tilly_messages'] = [{'role':'user','content':'private'}]
     at.text_input[0].set_value('test@example.com')
     at.text_input[1].set_value('test password only')
-    next(c for c in at.checkbox if c.label.startswith('I agree to send')).check()
     next(b for b in at.button if b.label == 'Log in').click().run()
     assert not at.exception
     assert not at.error, [e.value for e in at.error]

@@ -234,7 +234,13 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 @media(max-width:900px){[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"]){grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){[data-testid="stHorizontalBlock"]:has([class*="st-key-badge-card-"]){grid-template-columns:1fr}}
 
-/* Managed account screen follows the existing theme and motion preferences. */
-.account-intro{padding:1.5rem 0}.account-kicker{font-size:.7rem;letter-spacing:.16em;color:var(--accent)}
-.account-intro h2{font-size:clamp(1.7rem,3.1vw,3rem)!important;line-height:1.12!important;letter-spacing:-.045em;margin:1rem 0}
-.account-intro p{color:var(--muted)!important}.st-key-account-form{background:var(--surface);border-radius:20px;padding:1.4rem!important;border:1px solid var(--line)}
+/* Account access shares the app's surfaces, type and mint accent. */
+.st-key-account-access{padding-top:2.5rem;max-width:540px;margin:0 auto}
+.account-eyebrow{font-size:.65rem!important;letter-spacing:.13em;color:var(--muted)!important;margin-bottom:1rem!important}
+.st-key-account-form{background:var(--surface);border-radius:18px;padding:1.35rem!important;border:1px solid var(--line)}
+.st-key-account-form h3{font-size:1.65rem!important;letter-spacing:-.035em!important;margin-top:.4rem!important}
+.st-key-account-access [data-testid="stForm"]{border:0;padding:0}
+@media(max-width:768px){.st-key-account-access{padding-top:.8rem;max-width:100%}}
+
+.st-key-account_guest button{background:transparent!important;border:0!important;color:var(--muted)!important;min-height:32px}
+.st-key-account_guest button:hover{color:var(--accent)!important}

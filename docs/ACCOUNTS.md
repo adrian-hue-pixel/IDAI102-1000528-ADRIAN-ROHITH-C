@@ -17,7 +17,7 @@ Use a publishable or legacy anon key. Never use a service-role or `sb_secret_` k
 
 The ShopImpact deployment uses a dedicated SMTP2GO SMTP user configured in Supabase Authentication → Emails → SMTP Settings. Custom SMTP is enabled with TLS on port 587 at `mail.smtp2go.com`. The sending password stays in Supabase's encrypted SMTP configuration, outside the repository and Streamlit secrets. The sender address is individually verified. Email confirmation remains enabled, and billing stays on the free plans.
 
-The default Supabase restriction to organization-member recipients no longer applies when custom SMTP is configured. SMTP2GO account limits and sender policies still apply. Verify the entire flow by signing up with an address you control, following the confirmation email, and logging in. A successful settings save alone does not prove inbox delivery.
+The default Supabase restriction to organization-member recipients no longer applies when custom SMTP is configured. SMTP2GO account limits and sender policies still apply. Verify the entire flow by signing up with an address you control, following the confirmation email, and logging in. A confirmation email reached the maintainer during an actual app signup on 12 November 2026. This verifies that flow to one inbox, not delivery to every provider.
 
 [SMTP2GO setup guide](https://support.smtp2go.com/hc/en-gb/articles/12747932085145-Quick-Start-Guide)
 
