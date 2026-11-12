@@ -382,4 +382,4 @@ The journal gives those questions a place to live. The research tools make the m
 
 ### Optional accounts
 
-Use **Log in / Sign up** in the sidebar for Supabase-managed email accounts and logout. Guest access remains available. Journals stay browser-local and do not sync by account. Public confirmation emails require a configured SMTP sender. See [account setup and privacy](docs/ACCOUNTS.md).
+Use **Log in / Sign up** in the sidebar for Supabase-managed email accounts and logout. Guest access remains available. Journals stay browser-local and do not sync by account. The deployed app uses a dedicated SMTP2GO sender through Supabase for confirmation emails. See [account setup and privacy](docs/ACCOUNTS.md).
