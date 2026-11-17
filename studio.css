@@ -259,8 +259,8 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 
 /* One centred glass account card; no promotional panel. */
 [data-testid="stMainBlockContainer"]:has(.st-key-account-access){max-width:740px;width:100%;min-height:100dvh;padding:1.5rem 2rem!important;display:flex;flex-direction:column;justify-content:center}
-.st-key-account-access{position:relative;isolation:isolate;width:100%;max-width:640px;margin:auto!important;padding:2rem 2.3rem!important;border-radius:28px;border:1px solid color-mix(in srgb,var(--ink) 20%,transparent);background:color-mix(in srgb,var(--surface) 65%,transparent);-webkit-backdrop-filter:blur(20px) saturate(140%);backdrop-filter:blur(20px) saturate(140%);box-shadow:0 30px 80px rgba(0,0,0,.35),0 7px 18px rgba(0,0,0,.18),inset 0 1px 0 color-mix(in srgb,var(--ink) 22%,transparent),inset 1px 0 0 color-mix(in srgb,var(--ink) 8%,transparent)}
-@supports(backdrop-filter:url("#account-glass-refraction")){.st-key-account-access{backdrop-filter:url("#account-glass-refraction") blur(16px) saturate(140%)}}
+.st-key-account-access{position:relative;isolation:isolate;width:100%;max-width:640px;margin:auto!important;padding:2rem 2.3rem!important;border-radius:28px;border:1px solid color-mix(in srgb,var(--ink) 20%,transparent);background:color-mix(in srgb,var(--surface) 12%,transparent);-webkit-backdrop-filter:blur(2px) saturate(115%);backdrop-filter:blur(2px) saturate(115%);box-shadow:0 30px 80px rgba(0,0,0,.35),0 7px 18px rgba(0,0,0,.18),inset 0 1px 0 color-mix(in srgb,var(--ink) 22%,transparent),inset 1px 0 0 color-mix(in srgb,var(--ink) 8%,transparent)}
+@supports(backdrop-filter:url("#account-glass-refraction")){.st-key-account-access{backdrop-filter:url("#account-glass-refraction") blur(1px) saturate(115%)}}
 .st-key-account-access:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(135deg,color-mix(in srgb,var(--ink) 7%,transparent),transparent 36%,transparent 65%,color-mix(in srgb,var(--accent) 6%,transparent));z-index:-1}
 .st-key-account-form{border:0!important;background:transparent!important;padding:0!important;border-radius:0;box-shadow:none}
 .st-key-account-form [data-testid="stVerticalBlock"]{gap:.8rem}
@@ -286,6 +286,6 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 @media(forced-colors:active){.stApp .account-glass-wordmark{background:none;-webkit-text-fill-color:CanvasText;color:CanvasText;-webkit-text-stroke:0;filter:none}}
 
 /* Feather the glass silhouette instead of drawing a rectangular outline. */
-.st-key-account-access{border-color:transparent;background:color-mix(in srgb,var(--surface) 38%,transparent);box-shadow:0 24px 85px rgba(0,0,0,.22),0 0 45px color-mix(in srgb,var(--accent) 5%,transparent)}
+.st-key-account-access{border-color:transparent;background:color-mix(in srgb,var(--surface) 12%,transparent);box-shadow:0 24px 85px rgba(0,0,0,.22),0 0 45px color-mix(in srgb,var(--accent) 5%,transparent)}
 .st-key-account-access:before{inset:-8px;filter:blur(16px);background:linear-gradient(135deg,color-mix(in srgb,var(--ink) 9%,transparent),transparent 40%,color-mix(in srgb,var(--accent) 8%,transparent));opacity:.7}
 .st-key-account-access:after{content:"";position:absolute;inset:-2px;border-radius:inherit;pointer-events:none;z-index:-1;border:2px solid color-mix(in srgb,var(--ink) 10%,transparent);filter:blur(9px)}
