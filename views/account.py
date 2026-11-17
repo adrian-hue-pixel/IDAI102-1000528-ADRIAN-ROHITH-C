@@ -9,11 +9,14 @@ from ui.account import (
     current_session,
     enter_workspace,
 )
+from ui.common import render_tilly
 
 
 def render():
     with st.container(key='account-access'):
-        st.markdown('<p class="account-eyebrow">SHOPIMPACT / YOUR ACCOUNT</p>', unsafe_allow_html=True)
+        with st.container(key='account-welcome'):
+            render_tilly('curious', st.session_state.display_mode, bool(st.session_state.reduce_motion))
+            st.markdown('<p class="account-eyebrow">SHOPIMPACT</p><h1 class="account-title">Small choices.<br><span>A bigger picture.</span></h1><p class="account-intro">Your purchases, your patterns, your next step.</p>', unsafe_allow_html=True)
         try:
             api = client()
             session = current_session()
@@ -37,7 +40,7 @@ def render():
                 mode = st.radio('Account access', ['Log in', 'Sign up'], horizontal=True,
                                 label_visibility='collapsed', key='account_mode')
                 st.subheader('Welcome back' if mode == 'Log in' else 'Create your account')
-                st.caption('A little awareness. Every day.')
+                st.caption('Your next chapter starts with a little awareness.')
                 if api is None:
                     st.info('Account setup is in progress. You can keep exploring as a guest.')
                 with st.form('account_credentials', clear_on_submit=True):
@@ -47,7 +50,7 @@ def render():
                     confirmation = st.text_input('Confirm password', type='password', max_chars=128) if mode == 'Sign up' else None
                     submitted = st.form_submit_button('Log in' if mode == 'Log in' else 'Create account',
                                                      type='primary', use_container_width=True, disabled=api is None)
-                    st.caption('Secure sign-in with Supabase.')
+                    st.caption('Sign in securely. Your journal stays in this browser.')
                 if submitted and api:
                     try:
                         if mode == 'Sign up' and password != confirmation:
