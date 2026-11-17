@@ -29,10 +29,10 @@ THEMES = {
         "goal_over": "#98554c", "shadow": "rgba(27, 40, 35, .07)",
     },
     "Dark": {
-        "page": "#0b0d10", "surface": "#15191d", "surface_raised": "#1b2025",
-        "surface_high": "#22292e", "ink": "#f0f3f1", "muted": "#a6b2ac",
+        "page": "#000000", "surface": "#0b0d0f", "surface_raised": "#121619",
+        "surface_high": "#1a2024", "ink": "#f0f3f1", "muted": "#a6b2ac",
         "line": "#2b3438", "accent": "#8bcdb5", "accent_glow": "#a5dcc8",
-        "hero": "#15191d", "button": "#8bcdb5", "button_text": "#10251d",
+        "hero": "#0b0d0f", "button": "#8bcdb5", "button_text": "#10251d",
         "goal_over": "#e3a396", "shadow": "rgba(0, 0, 0, .28)",
     },
 }
@@ -97,8 +97,8 @@ def inject_css(
         "field": theme["surface_raised"], "pop": theme["surface"],
         "side": theme["surface"], "accent-soft": "#e4eee8" if mode == "Light" else "#21332b",
         "btn-text": theme["button_text"],
-        "ambient-one": "rgba(94, 150, 125, .15)" if mode == "Light" else "rgba(83, 148, 122, .13)",
-        "ambient-two": "rgba(122, 153, 191, .12)" if mode == "Light" else "rgba(91, 114, 175, .11)",
+        "ambient-one": "rgba(94, 150, 125, .15)" if mode == "Light" else "rgba(83, 148, 122, .035)",
+        "ambient-two": "rgba(122, 153, 191, .12)" if mode == "Light" else "rgba(91, 114, 175, .03)",
     }
     declarations = ";".join(f"--{name}:{value}" for name, value in variables.items())
     motion_override = (
