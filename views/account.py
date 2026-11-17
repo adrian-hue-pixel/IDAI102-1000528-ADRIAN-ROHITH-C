@@ -54,7 +54,9 @@ def render():
                         if mode == 'Sign up' and password != confirmation:
                             raise AuthError('The passwords do not match.')
                         attempt_allowed()
-                        with st.spinner('Connecting securely…'):
+                        if mode == 'Sign up':
+                        st.info('**CHECK SPAM** — Your confirmation email may arrive in your Spam or Junk folder.')
+                    with st.spinner('Connecting securely…'):
                             response = api.login(email, password) if mode == 'Log in' else api.signup(email, password)
                         if response.get('access_token'):
                             session = session_from_response(response)
@@ -63,7 +65,7 @@ def render():
                             st.session_state.account_session = session
                             enter_workspace(destination=destination)
                         else:
-                            st.success('Check your email to confirm your account, then return to log in. Already registered? Use Log in.')
+                            st.success('Check your email to confirm your account. **CHECK SPAM** — Look in Spam or Junk if it is not in your inbox. After confirming, return to Log in. Already registered? Use Log in.')
                     except AuthError as exc:
                         st.error(str(exc))
         if not session:
