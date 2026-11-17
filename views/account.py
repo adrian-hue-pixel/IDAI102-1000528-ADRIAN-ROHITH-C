@@ -9,17 +9,13 @@ from ui.account import (
     current_session,
     enter_workspace,
 )
-from ui.common import render_tilly
 
 
 def render():
     with st.container(key='account-access'):
         intro, access = st.columns([1.15, 1], gap="large", vertical_alignment="center")
         with intro, st.container(key='account-welcome'):
-            st.markdown('<p class="account-eyebrow">SHOPIMPACT / CONSUMPTION, CONSIDERED</p><h1 class="account-title">Every purchase.<br><span>A possibility.</span></h1><p class="account-intro">See your patterns. Explore your impact.<br>Make room for your next better choice.</p>', unsafe_allow_html=True)
-            with st.container(key='account-tilly-stage'):
-                render_tilly('curious', st.session_state.display_mode, bool(st.session_state.reduce_motion))
-            st.markdown('<div class="account-signature"><span>YOUR JOURNAL</span><span>YOUR IMPACT</span><span>YOUR PACE</span></div>', unsafe_allow_html=True)
+            st.markdown('<div class="account-brandline"><span class="account-brandmark">S<span>↗</span></span><span>SHOPIMPACT<br><small>CONSUMPTION, CONSIDERED</small></span></div><h1 class="account-title">Know what<br><span>adds up.</span></h1><p class="account-intro">A clearer view of what you buy.<br>A little more intention in what comes next.</p><div class="account-receipt" aria-label="ShopImpact workflow"><div class="receipt-heading"><span>THE EVERYDAY EDIT</span><span>↗</span></div><div><span>01 / Log your purchases</span><span>＋</span></div><div><span>02 / Understand the estimate</span><span>↗</span></div><div><span>03 / Explore another choice</span><span>→</span></div><p>Your choices. Your perspective.</p></div>', unsafe_allow_html=True)
         with access:
             try:
                 api = client()
