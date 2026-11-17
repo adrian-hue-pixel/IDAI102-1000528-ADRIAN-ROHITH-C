@@ -12,70 +12,67 @@ from ui.account import (
 
 
 def render():
+    st.markdown('<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><filter id="account-glass-refraction" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.022" numOctaves="2" seed="8" result="glassNoise"/><feDisplacementMap in="SourceGraphic" in2="glassNoise" scale="12" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>', unsafe_allow_html=True)
     with st.container(key='account-access'):
-        intro, access = st.columns([1.15, 1], gap="large", vertical_alignment="center")
-        with intro, st.container(key='account-welcome'):
-            st.markdown('<div class="account-brandline"><span class="account-brandmark">S<span>↗</span></span><span>SHOPIMPACT<br><small>CONSUMPTION, CONSIDERED</small></span></div><h1 class="account-title">Know what<br><span>adds up.</span></h1><p class="account-intro">A clearer view of what you buy.<br>A little more intention in what comes next.</p><div class="account-receipt" aria-label="ShopImpact workflow"><div class="receipt-heading"><span>THE EVERYDAY EDIT</span><span>↗</span></div><div><span>01 / Log your purchases</span><span>＋</span></div><div><span>02 / Understand the estimate</span><span>↗</span></div><div><span>03 / Explore another choice</span><span>→</span></div><p>Your choices. Your perspective.</p></div>', unsafe_allow_html=True)
-        with access:
-            try:
-                api = client()
-                session = current_session()
-            except AuthError as exc:
-                st.error(str(exc))
-                api, session = None, None
-            with st.container(border=True, key='account-form'):
-                if session:
-                    st.subheader('Welcome back')
-                    st.caption(session['email'])
-                    st.success('You are signed in.')
-                    if st.button('Log out', type='primary', use_container_width=True):
-                        try:
-                            if api:
-                                api.logout(session['access_token'])
-                        except AuthError:
-                            st.session_state.account_logout_notice = 'Signed out here. The account service could not confirm token revocation.'
-                        clear_session()
-                        st.rerun()
-                else:
-                    mode = st.radio('Account access', ['Log in', 'Sign up'], horizontal=True,
-                                    label_visibility='collapsed', key='account_mode')
-                    st.subheader('Welcome back' if mode == 'Log in' else 'Create your account')
-                    st.caption('Your next chapter starts with a little awareness.')
-                    if api is None:
-                        st.info('Account setup is in progress. You can keep exploring as a guest.')
-                    with st.form('account_credentials', clear_on_submit=True):
-                        email = st.text_input('Email', placeholder='you@example.com', max_chars=254)
-                        password = st.text_input('Password', type='password', max_chars=128,
-                                                 help='At least 12 characters for a new account.')
-                        confirmation = st.text_input('Confirm password', type='password', max_chars=128) if mode == 'Sign up' else None
-                        submitted = st.form_submit_button('Log in' if mode == 'Log in' else 'Create account',
-                                                         type='primary', use_container_width=True, disabled=api is None)
-                        st.caption('Sign in securely. Your journal stays in this browser.')
-                    if submitted and api:
-                        try:
-                            if mode == 'Sign up' and password != confirmation:
-                                raise AuthError('The passwords do not match.')
-                            attempt_allowed()
-                            with st.spinner('Connecting securely…'):
-                                response = api.login(email, password) if mode == 'Log in' else api.signup(email, password)
-                            if response.get('access_token'):
-                                session = session_from_response(response)
-                                destination = st.session_state.get('entry_destination', 'Home')
-                                clear_session()
-                                st.session_state.account_session = session
-                                enter_workspace(destination=destination)
-                            else:
-                                st.success('Check your email to confirm your account, then return to log in. Already registered? Use Log in.')
-                        except AuthError as exc:
-                            st.error(str(exc))
-            if st.session_state.get('account_logout_notice'):
-                st.info(st.session_state.pop('account_logout_notice'))
-            if st.button('Continue to app' if session else 'Continue as guest', type='tertiary', key='account_guest', use_container_width=True):
-                enter_workspace(as_guest=session is None)
-            st.caption('Your journal stays in this browser.')
-            with st.popover('Privacy and storage', use_container_width=True):
-                st.write('Accounts use Supabase for authentication. Purchase journals are stored in this browser and do not sync or become private by account. Other users of a shared browser can access its local journal.')
-                st.caption('Passwords are not saved in your journal. Sign-in tokens stay in this session. Closing or reloading into a fresh session may require logging in again.')
+        try:
+            api = client()
+            session = current_session()
+        except AuthError as exc:
+            st.error(str(exc))
+            api, session = None, None
+        with st.container(border=True, key='account-form'):
+            if session:
+                st.subheader('Welcome back')
+                st.caption(session['email'])
+                st.success('You are signed in.')
+                if st.button('Log out', type='primary', use_container_width=True):
+                    try:
+                        if api:
+                            api.logout(session['access_token'])
+                    except AuthError:
+                        st.session_state.account_logout_notice = 'Signed out here. The account service could not confirm token revocation.'
+                    clear_session()
+                    st.rerun()
+            else:
+                mode = st.radio('Account access', ['Log in', 'Sign up'], horizontal=True,
+                                label_visibility='collapsed', key='account_mode')
+                st.subheader('Welcome back' if mode == 'Log in' else 'Create your account')
+                st.caption('Your next chapter starts with a little awareness.')
+                if api is None:
+                    st.info('Account setup is in progress. You can keep exploring as a guest.')
+                with st.form('account_credentials', clear_on_submit=True):
+                    email = st.text_input('Email', placeholder='you@example.com', max_chars=254)
+                    password = st.text_input('Password', type='password', max_chars=128,
+                                             help='At least 12 characters for a new account.')
+                    confirmation = st.text_input('Confirm password', type='password', max_chars=128) if mode == 'Sign up' else None
+                    submitted = st.form_submit_button('Log in' if mode == 'Log in' else 'Create account',
+                                                     type='primary', use_container_width=True, disabled=api is None)
+                    st.caption('Sign in securely. Your journal stays in this browser.')
+                if submitted and api:
+                    try:
+                        if mode == 'Sign up' and password != confirmation:
+                            raise AuthError('The passwords do not match.')
+                        attempt_allowed()
+                        with st.spinner('Connecting securely…'):
+                            response = api.login(email, password) if mode == 'Log in' else api.signup(email, password)
+                        if response.get('access_token'):
+                            session = session_from_response(response)
+                            destination = st.session_state.get('entry_destination', 'Home')
+                            clear_session()
+                            st.session_state.account_session = session
+                            enter_workspace(destination=destination)
+                        else:
+                            st.success('Check your email to confirm your account, then return to log in. Already registered? Use Log in.')
+                    except AuthError as exc:
+                        st.error(str(exc))
+        if st.session_state.get('account_logout_notice'):
+            st.info(st.session_state.pop('account_logout_notice'))
+        if st.button('Continue to app' if session else 'Continue as guest', type='tertiary', key='account_guest', use_container_width=True):
+            enter_workspace(as_guest=session is None)
+        st.caption('Your journal stays in this browser.')
+        with st.popover('Privacy and storage', use_container_width=True):
+            st.write('Accounts use Supabase for authentication. Purchase journals are stored in this browser and do not sync or become private by account. Other users of a shared browser can access its local journal.')
+            st.caption('Passwords are not saved in your journal. Sign-in tokens stay in this session. Closing or reloading into a fresh session may require logging in again.')
 
 
 render()
