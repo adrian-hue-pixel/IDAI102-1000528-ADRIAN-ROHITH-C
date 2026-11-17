@@ -255,58 +255,42 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 .st-key-home-hero-actions .studio-primary-link,.st-key-home-hero-actions [data-testid="stPageLink-NavLink"]{display:flex;align-items:center;justify-content:center;width:100%!important;height:48px;min-height:48px;box-sizing:border-box;padding:.65rem 1rem;line-height:1.4}
 @media(max-width:500px){.st-key-home-hero-actions [data-testid="stHorizontalBlock"]{flex-direction:column!important}.st-key-home-hero-actions [data-testid="stColumn"]{width:100%!important;flex:auto!important}}
 
-/* Account entry: a welcoming Tilly introduction and a focused sign-in form. */
-.st-key-account-access{max-width:500px;width:100%;margin-inline:auto!important;padding-top:.4rem}
-.st-key-account-welcome{text-align:center;padding:0 0 1rem}
-.st-key-account-welcome .tilly-image{height:96px!important;width:140px!important;object-fit:contain;margin:0 auto .35rem!important}
-.st-key-account-welcome .account-eyebrow{text-align:center!important;font-size:.62rem!important;letter-spacing:.22em;margin:.25rem 0 .65rem!important;color:var(--accent)!important}
-.st-key-account-welcome .account-title{font-size:2.7rem!important;line-height:1.08!important;letter-spacing:-.055em!important;text-align:center;margin:0!important;padding:0!important}
-.account-title span{color:var(--accent)}
-.st-key-account-welcome .account-intro{text-align:center!important;color:var(--muted)!important;font-size:.88rem!important;margin:.8rem auto 0!important}
-.st-key-account-form{padding:1.4rem!important;border:1px solid var(--line)!important;background:var(--surface)!important;border-radius:20px!important}
-.st-key-account-form [role="radiogroup"]{display:flex;gap:4px;padding:4px;border-radius:12px;background:var(--page);border:1px solid var(--line)}
-.st-key-account-form [data-testid="stRadioOption"]{flex:1;justify-content:center;margin:0!important;padding:.4rem .7rem;border-radius:8px;transition:background var(--motion-duration)}
-.st-key-account-form [data-testid="stRadioOption"]:has(input:checked){background:var(--surface-high)}
-.st-key-account-form [data-testid="stRadioOption"]>div:first-child{display:none}
-.st-key-account-form [data-testid="stRadioOption"] p{font-size:.82rem!important;font-weight:600}
-.st-key-account-form h3{font-size:1.4rem!important;margin-top:.15rem!important}
-.st-key-account-form [data-testid="stFormSubmitButton"] button{min-height:46px;border-radius:11px}
-.st-key-account_guest button{min-height:42px;border:1px solid var(--line)!important;border-radius:11px;background:var(--surface)!important;color:var(--ink)!important}
-.st-key-account_guest button:hover{border-color:var(--accent)!important}
-.st-key-account-access>[data-testid="stCaptionContainer"]{text-align:center}
-@media(max-width:500px){.st-key-account-welcome .account-title{font-size:2.25rem!important}.st-key-account-form{padding:1rem!important}.st-key-account-welcome .tilly-image{height:80px!important}}
 
-/* Full-screen account introduction, separate from the everyday workspace. */
-[data-testid="stMainBlockContainer"]:has(.st-key-account-access){max-width:1200px;padding:1.25rem 2.5rem!important;min-height:100dvh;display:flex;flex-direction:column;justify-content:center}
-.st-key-account-access{max-width:none;padding:0!important;margin:0!important}
-.st-key-account-access>[data-testid="stHorizontalBlock"]{align-items:center!important;gap:4rem}
-.st-key-account-welcome{position:relative;text-align:left;padding:0!important;isolation:isolate}
-.st-key-account-welcome:before{content:"";position:absolute;inset:-8% -10%;z-index:-1;background:radial-gradient(ellipse at 50% 65%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 65%);pointer-events:none}
-.st-key-account-welcome .account-eyebrow{text-align:left!important;letter-spacing:.17em;font-size:.6rem!important;margin:0 0 1.15rem!important}
-.st-key-account-welcome .account-title{text-align:left;font-size:clamp(2.9rem,4.6vw,4.5rem)!important;font-weight:750!important;letter-spacing:-.065em!important;line-height:1.02!important}
-.st-key-account-welcome .account-title span{background:linear-gradient(110deg,var(--accent),var(--ink),var(--accent));background-size:200% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:account-shimmer 8s ease-in-out infinite}
-.st-key-account-welcome .account-intro{text-align:left!important;margin:1.2rem 0 0!important;font-size:.95rem!important;line-height:1.7}
-.st-key-account-tilly-stage{position:relative;display:grid;place-items:center;height:190px;margin:.5rem 0}
-.st-key-account-tilly-stage:before,.st-key-account-tilly-stage:after{content:"";position:absolute;width:180px;height:180px;border:1px solid var(--line);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
-.st-key-account-tilly-stage:after{width:230px;height:150px;border-style:dashed;animation:account-orbit 24s linear infinite}
-.st-key-account-welcome .tilly-image{height:145px!important;width:220px!important;margin:0 auto!important;filter:drop-shadow(0 12px 24px var(--shadow))}
-.account-signature{display:flex;justify-content:space-between;gap:1rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.9rem;font-size:.55rem;letter-spacing:.16em}
-.st-key-account-form{box-shadow:0 20px 70px var(--shadow);padding:1.35rem!important;border-top:2px solid var(--accent)!important;animation:rise-in var(--polish-duration) ease both}
-.st-key-account-form [data-testid="stVerticalBlock"]{gap:.6rem}
-.st-key-account-form h3{font-size:1.5rem!important}
+/* Account welcome: editorial identity and purchase-journal motif. */
+[data-testid="stMainBlockContainer"]:has(.st-key-account-access){max-width:1140px;padding:1.5rem 2.5rem!important;min-height:100dvh;display:flex;flex-direction:column;justify-content:center}
+.st-key-account-access{max-width:none;width:100%;margin:0!important;padding:0!important}
+.st-key-account-access>[data-testid="stHorizontalBlock"]{align-items:center!important;gap:5rem}
+.st-key-account-welcome{padding:0;text-align:left}
+.account-brandline{display:flex;align-items:center;gap:.8rem;font-size:.83rem;font-weight:700;letter-spacing:.08em;color:var(--ink);margin-bottom:2rem}
+.account-brandline small{display:block;font-size:.49rem;font-weight:500;color:var(--muted);letter-spacing:.14em;margin-top:.3rem}
+.account-brandmark{position:relative;display:grid;place-items:center;width:46px;height:46px;border:1px solid var(--accent);border-radius:13px;font-size:1.7rem;color:var(--accent);letter-spacing:-.08em}
+.account-brandmark>span{position:absolute;right:1px;top:-5px;font-size:.8rem;background:var(--page)}
+.st-key-account-welcome .account-title{font-size:clamp(3.4rem,5vw,5rem)!important;line-height:.98!important;letter-spacing:-.065em!important;font-weight:700!important;margin:0!important;padding:0!important;text-align:left}
+.account-title span{color:var(--accent)}
+.st-key-account-welcome .account-intro{font-size:.96rem!important;color:var(--muted)!important;line-height:1.65!important;margin:1.35rem 0 1.75rem!important;text-align:left}
+.account-receipt{max-width:360px;border-top:1px solid var(--accent);border-bottom:1px solid var(--line);padding:1rem 0 .25rem;animation:rise-in var(--polish-duration) ease both}
+.account-receipt>div{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.76rem;color:var(--ink)}
+.account-receipt .receipt-heading{font-size:.55rem;letter-spacing:.17em;color:var(--accent);padding:0 0 .8rem}
+.account-receipt>p{font-size:.67rem!important;color:var(--muted)!important;margin:.8rem 0!important}
+.st-key-account-form{padding:1.5rem!important;border:1px solid var(--line)!important;background:var(--surface)!important;border-radius:20px!important}
+.st-key-account-form [data-testid="stVerticalBlock"]{gap:.65rem}
+.st-key-account-form h3{font-size:1.55rem!important;margin-top:.35rem!important}
+.st-key-account-form [role="radiogroup"]{display:flex;width:100%;gap:1rem;padding:0 0 .5rem;border-bottom:1px solid var(--line)}
+.st-key-account-form [data-testid="stRadioOption"]{margin:0!important}
+.st-key-account-form [data-testid="stFormSubmitButton"] button{min-height:46px;border-radius:10px}
 .st-key-account-access [data-testid="stColumn"]>[data-testid="stVerticalBlock"]{gap:.65rem}
-.st-key-account-access [data-testid="stPopover"] button{min-height:32px;font-size:.75rem;color:var(--muted)!important;background:transparent;border:0}
-.st-key-account-access [data-testid="stCaptionContainer"]{font-size:.72rem}
-@keyframes account-shimmer{50%{background-position:100% 50%}}
-@keyframes account-orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.st-key-account_guest button{min-height:42px;background:transparent!important;border:1px solid var(--line)!important;border-radius:10px;color:var(--ink)!important}
+.st-key-account_guest button:hover{border-color:var(--accent)!important}
+.st-key-account-access [data-testid="stPopover"] button{min-height:32px;background:transparent;border:0;color:var(--muted)!important;font-size:.75rem}
 @media(min-width:900px) and (min-height:700px){[data-testid="stMain"]:has(.st-key-account-access){overflow-y:hidden}}
 @media(max-width:899px){
-[data-testid="stMainBlockContainer"]:has(.st-key-account-access){max-width:540px;padding:1rem 1.25rem!important;min-height:100dvh}
-.st-key-account-access>[data-testid="stHorizontalBlock"]{flex-direction:column!important;gap:1rem!important}
-.st-key-account-access>[data-testid="stHorizontalBlock"]>[data-testid="stColumn"]{width:100%!important;flex:auto!important;min-width:0!important}
-.st-key-account-welcome .account-title{text-align:center;font-size:2.1rem!important}
-.st-key-account-welcome .account-eyebrow{text-align:center!important;margin-bottom:.6rem!important}
-.st-key-account-welcome .account-intro,.st-key-account-tilly-stage,.account-signature{display:none}
+[data-testid="stMainBlockContainer"]:has(.st-key-account-access){max-width:540px;padding:1.25rem!important;min-height:100dvh}
+.st-key-account-access>[data-testid="stHorizontalBlock"]{flex-direction:column!important;gap:1.2rem!important}
+.st-key-account-access>[data-testid="stHorizontalBlock"]>[data-testid="stColumn"]{width:100%!important;min-width:0!important;flex:auto!important}
+.account-brandline{margin-bottom:.8rem}
+.st-key-account-welcome .account-title{font-size:2.8rem!important}
+.st-key-account-welcome .account-title br{display:none}
+.st-key-account-welcome .account-title span:before{content:" "}
+.st-key-account-welcome .account-intro,.account-receipt{display:none}
 .st-key-account-form{padding:1rem!important}
 }
-@media(prefers-reduced-motion:reduce){.st-key-account-welcome .account-title span,.st-key-account-tilly-stage:after{animation:none!important}}
