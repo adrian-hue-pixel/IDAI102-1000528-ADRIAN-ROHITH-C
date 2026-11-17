@@ -246,3 +246,11 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 
 .st-key-account_guest button{background:transparent!important;border:0!important;color:var(--muted)!important;min-height:32px}
 .st-key-account_guest button:hover{color:var(--accent)!important}
+
+/* Keep both hero actions on one centred baseline, without spacer columns. */
+.st-key-home-hero-actions [data-testid="stHorizontalBlock"]{width:100%;max-width:720px;margin-inline:auto!important;align-items:center!important;gap:1rem}
+.st-key-home-hero-actions [data-testid="stColumn"]:first-child,.st-key-home-hero-actions [data-testid="stColumn"]:last-child{display:none!important}
+.st-key-home-hero-actions [data-testid="stColumn"]{flex:1 1 0!important;width:0!important;min-width:0!important}
+.st-key-home-hero-actions p{margin:0!important}
+.st-key-home-hero-actions .studio-primary-link,.st-key-home-hero-actions [data-testid="stPageLink-NavLink"]{display:flex;align-items:center;justify-content:center;width:100%!important;height:48px;min-height:48px;box-sizing:border-box;padding:.65rem 1rem;line-height:1.4}
+@media(max-width:500px){.st-key-home-hero-actions [data-testid="stHorizontalBlock"]{flex-direction:column!important}.st-key-home-hero-actions [data-testid="stColumn"]{width:100%!important;flex:auto!important}}
