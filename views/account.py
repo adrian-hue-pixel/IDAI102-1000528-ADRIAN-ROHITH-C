@@ -66,6 +66,20 @@ def render():
                             st.success('Check your email to confirm your account, then return to log in. Already registered? Use Log in.')
                     except AuthError as exc:
                         st.error(str(exc))
+        if not session:
+            with st.popover('Did not get your confirmation email?', use_container_width=True):
+                st.caption('Already confirmed your email? Use Log in. Otherwise request a new confirmation below.')
+                with st.form('resend_confirmation', clear_on_submit=True):
+                    resend_email = st.text_input('Account email', max_chars=254, placeholder='you@example.com')
+                    resend_submitted = st.form_submit_button('Resend confirmation email', disabled=api is None)
+                if resend_submitted and api:
+                    try:
+                        attempt_allowed()
+                        with st.spinner('Requesting confirmation…'):
+                            api.resend_confirmation(resend_email)
+                        st.success('If this address has an unconfirmed account, a new confirmation has been requested. Check Spam too. Already confirmed? Use Log in.')
+                    except AuthError as exc:
+                        st.error(str(exc))
         if st.session_state.get('account_logout_notice'):
             st.info(st.session_state.pop('account_logout_notice'))
         if st.button('Continue to app' if session else 'Continue as guest', type='tertiary', key='account_guest', use_container_width=True):
