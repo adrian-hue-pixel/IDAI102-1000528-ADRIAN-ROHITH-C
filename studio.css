@@ -275,3 +275,38 @@ input::placeholder,textarea::placeholder{color:var(--muted)!important;opacity:.8
 .st-key-account_guest button:hover{border-color:var(--accent)!important}
 .st-key-account-access>[data-testid="stCaptionContainer"]{text-align:center}
 @media(max-width:500px){.st-key-account-welcome .account-title{font-size:2.25rem!important}.st-key-account-form{padding:1rem!important}.st-key-account-welcome .tilly-image{height:80px!important}}
+
+/* Full-screen account introduction, separate from the everyday workspace. */
+[data-testid="stMainBlockContainer"]:has(.st-key-account-access){max-width:1200px;padding:1.25rem 2.5rem!important;min-height:100dvh;display:flex;flex-direction:column;justify-content:center}
+.st-key-account-access{max-width:none;padding:0!important;margin:0!important}
+.st-key-account-access>[data-testid="stHorizontalBlock"]{align-items:center!important;gap:4rem}
+.st-key-account-welcome{position:relative;text-align:left;padding:0!important;isolation:isolate}
+.st-key-account-welcome:before{content:"";position:absolute;inset:-8% -10%;z-index:-1;background:radial-gradient(ellipse at 50% 65%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 65%);pointer-events:none}
+.st-key-account-welcome .account-eyebrow{text-align:left!important;letter-spacing:.17em;font-size:.6rem!important;margin:0 0 1.15rem!important}
+.st-key-account-welcome .account-title{text-align:left;font-size:clamp(2.9rem,4.6vw,4.5rem)!important;font-weight:750!important;letter-spacing:-.065em!important;line-height:1.02!important}
+.st-key-account-welcome .account-title span{background:linear-gradient(110deg,var(--accent),var(--ink),var(--accent));background-size:200% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:account-shimmer 8s ease-in-out infinite}
+.st-key-account-welcome .account-intro{text-align:left!important;margin:1.2rem 0 0!important;font-size:.95rem!important;line-height:1.7}
+.st-key-account-tilly-stage{position:relative;display:grid;place-items:center;height:190px;margin:.5rem 0}
+.st-key-account-tilly-stage:before,.st-key-account-tilly-stage:after{content:"";position:absolute;width:180px;height:180px;border:1px solid var(--line);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+.st-key-account-tilly-stage:after{width:230px;height:150px;border-style:dashed;animation:account-orbit 24s linear infinite}
+.st-key-account-welcome .tilly-image{height:145px!important;width:220px!important;margin:0 auto!important;filter:drop-shadow(0 12px 24px var(--shadow))}
+.account-signature{display:flex;justify-content:space-between;gap:1rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.9rem;font-size:.55rem;letter-spacing:.16em}
+.st-key-account-form{box-shadow:0 20px 70px var(--shadow);padding:1.35rem!important;border-top:2px solid var(--accent)!important;animation:rise-in var(--polish-duration) ease both}
+.st-key-account-form [data-testid="stVerticalBlock"]{gap:.6rem}
+.st-key-account-form h3{font-size:1.5rem!important}
+.st-key-account-access [data-testid="stColumn"]>[data-testid="stVerticalBlock"]{gap:.65rem}
+.st-key-account-access [data-testid="stPopover"] button{min-height:32px;font-size:.75rem;color:var(--muted)!important;background:transparent;border:0}
+.st-key-account-access [data-testid="stCaptionContainer"]{font-size:.72rem}
+@keyframes account-shimmer{50%{background-position:100% 50%}}
+@keyframes account-orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media(min-width:900px) and (min-height:700px){[data-testid="stMain"]:has(.st-key-account-access){overflow-y:hidden}}
+@media(max-width:899px){
+[data-testid="stMainBlockContainer"]:has(.st-key-account-access){max-width:540px;padding:1rem 1.25rem!important;min-height:100dvh}
+.st-key-account-access>[data-testid="stHorizontalBlock"]{flex-direction:column!important;gap:1rem!important}
+.st-key-account-access>[data-testid="stHorizontalBlock"]>[data-testid="stColumn"]{width:100%!important;flex:auto!important;min-width:0!important}
+.st-key-account-welcome .account-title{text-align:center;font-size:2.1rem!important}
+.st-key-account-welcome .account-eyebrow{text-align:center!important;margin-bottom:.6rem!important}
+.st-key-account-welcome .account-intro,.st-key-account-tilly-stage,.account-signature{display:none}
+.st-key-account-form{padding:1rem!important}
+}
+@media(prefers-reduced-motion:reduce){.st-key-account-welcome .account-title span,.st-key-account-tilly-stage:after{animation:none!important}}
