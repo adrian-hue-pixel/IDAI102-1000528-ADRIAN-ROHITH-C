@@ -77,6 +77,12 @@ class AuthClient:
         email = validate(email, password, signup=True)
         return self.request('signup', {'email': email, 'password': password})
 
+    def resend_confirmation(self, email):
+        email = email.strip().lower()
+        if len(email) > 254 or not re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+', email):
+            raise AuthError('Enter a valid email address.')
+        return self.request('resend', {'type': 'signup', 'email': email})
+
     def login(self, email, password):
         email = validate(email, password)
         return self.request('token?grant_type=password', {'email': email, 'password': password})
