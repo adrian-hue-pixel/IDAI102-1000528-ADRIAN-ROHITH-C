@@ -14,6 +14,7 @@ from ui.account import (
 def render():
     st.markdown('<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><filter id="account-glass-refraction" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.022" numOctaves="2" seed="8" result="glassNoise"/><feDisplacementMap in="SourceGraphic" in2="glassNoise" scale="12" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>', unsafe_allow_html=True)
     with st.container(key='account-access'):
+        st.markdown('<div class="account-glass-brand"><h1 class="account-glass-wordmark">Shop<span>Impact</span></h1></div>', unsafe_allow_html=True)
         try:
             api = client()
             session = current_session()
