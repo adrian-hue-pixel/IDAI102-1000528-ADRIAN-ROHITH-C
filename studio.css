@@ -10,8 +10,10 @@ html,body,.stApp{font-family:var(--font-family);font-size:calc(16px * var(--font
 [data-testid="stIconMaterial"],.stApp [class*="material-symbols"]{font-family:'Material Symbols Rounded'!important}
 [data-testid="stHeader"]{background:transparent!important;pointer-events:none}[data-testid="stHeader"] button{pointer-events:auto}
 [data-testid="stAppViewContainer"],[data-testid="stMain"]{background:transparent!important}
-[data-testid="stMainBlockContainer"]{max-width:1160px;padding:3.5rem 3rem 4rem;position:relative;z-index:1}
-[data-testid="stSidebar"]{background:var(--sidebar,var(--surface))!important;border-right:1px solid var(--line);backdrop-filter:blur(28px);min-width:248px!important;max-width:248px!important}
+[data-testid="stMainBlockContainer"]{width:100%;max-width:1160px;margin-inline:auto;padding:3.5rem 3rem 4rem;position:relative;z-index:1}
+[data-testid="stSidebar"]{background:var(--sidebar,var(--surface))!important;border-right:1px solid var(--line);backdrop-filter:blur(28px);}
+[data-testid="stSidebar"][aria-expanded="true"]{min-width:248px!important;max-width:248px!important}
+[data-testid="stSidebar"][aria-expanded="false"]{min-width:0!important;max-width:0!important;width:0!important;border-right:0;visibility:hidden}
 [data-testid="stSidebarContent"]{background:transparent!important;padding:1rem .25rem}
 [data-testid="stSidebarUserContent"]{padding:1.2rem 1rem 2rem}
 .studio-brand{display:flex;align-items:center;gap:.65rem;padding:.2rem .3rem 2rem;color:var(--ink)}
@@ -53,13 +55,13 @@ html,body,.stApp{font-family:var(--font-family);font-size:calc(16px * var(--font
 .hero-eyebrow{font-size:.63rem!important;letter-spacing:.15em;font-weight:600;color:var(--muted)!important;margin-bottom:1rem}
 .studio-hero h2{font-size:clamp(2.4rem,4.1vw,3.6rem)!important;line-height:1.08;letter-spacing:-.065em!important;font-weight:650!important;margin:0 0 1.4rem;padding:0}
 .studio-hero h2 span{color:var(--accent)}
-.hero-description{font-size:1rem;line-height:1.75!important;color:var(--muted)!important;max-width:590px;margin:0 auto 1.5rem}
-.hero-capabilities{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-bottom:.3rem}
+.hero-description{font-size:1rem;line-height:1.75!important;color:var(--muted)!important;max-width:590px!important;margin:0 auto 1.5rem!important;text-align:center!important}
+.hero-capabilities{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin:.0 auto .3rem;width:100%}
 .hero-capabilities span{padding:.3rem .7rem;border:1px solid var(--line);border-radius:99px;font-size:.66rem;color:var(--muted);background:var(--glass,var(--surface))}
 .st-key-home-hero-actions{margin:.4rem 0 1.5rem}
 .studio-primary-link{display:flex;justify-content:center;align-items:center;gap:1rem;background:var(--button);color:var(--button-text)!important;min-height:43px;padding:.65rem 1rem;border-radius:99px;text-decoration:none;font-size:.78rem;font-weight:600;transition:transform var(--motion-duration),box-shadow var(--motion-duration)}
 .studio-primary-link:hover{transform:translateY(-2px);box-shadow:0 7px 22px var(--shadow)}
-.st-key-home-hero-actions [data-testid="stPageLink-NavLink"]{justify-content:center;border:1px solid var(--line);border-radius:99px;background:var(--glass,var(--surface));min-height:43px;color:var(--ink)}
+.st-key-home-hero-actions [data-testid="stPageLink-NavLink"]{justify-content:center;width:100%;border:1px solid var(--line);border-radius:99px;background:var(--glass,var(--surface));min-height:43px;color:var(--ink)}
 .st-key-home-hero-actions [data-testid="stPageLink-NavLink"] p{font-size:.78rem}
 .studio-section{margin:1.5rem 0 .7rem}.studio-section>span{font-size:.58rem;letter-spacing:.14em;color:var(--muted);font-weight:600}.studio-section h2{font-size:1.45rem!important;font-weight:600!important;margin-top:.4rem}
 [class*="st-key-tool-"]{border-radius:15px!important;border:1px solid var(--line)!important;padding:1.3rem!important;background:var(--glass,var(--surface));box-shadow:0 4px 24px var(--shadow);transition:transform var(--motion-duration),border-color var(--motion-duration);animation:rise-in var(--polish-duration) both}
