@@ -55,8 +55,8 @@ def render():
                             raise AuthError('The passwords do not match.')
                         attempt_allowed()
                         if mode == 'Sign up':
-                        st.info('**CHECK SPAM** — Your confirmation email may arrive in your Spam or Junk folder.')
-                    with st.spinner('Connecting securely…'):
+                            st.info('**CHECK SPAM** — Your confirmation email may arrive in your Spam or Junk folder.')
+                        with st.spinner('Connecting securely…'):
                             response = api.login(email, password) if mode == 'Log in' else api.signup(email, password)
                         if response.get('access_token'):
                             session = session_from_response(response)
