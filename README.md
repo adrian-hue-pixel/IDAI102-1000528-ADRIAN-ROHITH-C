@@ -286,14 +286,15 @@ Experiment exports include inputs, seed, dataset version/hash and recorded resul
 
 **Impact Lab → Share study feedback** provides a task/rating/consent form. Responses are browser-local and downloadable. There is no connected central study database and no completed user-study claim.
 
-### Classmate usability review
+### Usability review checklist
 
-A review with Kavin and Sritharan is proposed; their responses have not been collected or approved for publication. The examples below are assistant-authored illustrations, **not feedback from either classmate and not study results**.
+Try these tasks as a guest and note where you hesitate or get stuck.
 
-- **Purchase-entry example:** “The category choices and live estimate would help me compare purchases. I would want the estimate’s assumptions explained beside the number.”
-- **Navigation example:** “The dashboard would help me review the month. I would want a clearer route from a chart back to the purchases behind it.”
+- Log a purchase and find it again in the journal.
+- Open the dashboard and identify which category contributes most to the monthly estimate.
+- Compare an alternative in Swaps and explain what the estimated difference means.
 
-Ask each reviewer to enter a purchase, find it in the journal, compare an alternative and explain what the footprint estimate means. Record what they actually say, any task they cannot complete and the date. Replace the examples with their approved comments only after the review; obtain permission before publishing names or quotes in this public repository.
+For each task, record whether you finished it, what was unclear and one change that would help. Share observations through the in-app feedback form.
 
 The opt-in research export excludes detailed amounts by default. Classifier text corrections require separate consent and are not automatically included in that export.
 
