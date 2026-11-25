@@ -286,24 +286,33 @@ Experiment exports include inputs, seed, dataset version/hash and recorded resul
 
 **Impact Lab → Share study feedback** provides a task/rating/consent form. Responses are browser-local and downloadable. There is no connected central study database and no completed user-study claim.
 
+### Classmate usability review
+
+A review with Kavin and Sritharan is proposed; their responses have not been collected or approved for publication. The examples below are assistant-authored illustrations, **not feedback from either classmate and not study results**.
+
+- **Purchase-entry example:** “The category choices and live estimate would help me compare purchases. I would want the estimate’s assumptions explained beside the number.”
+- **Navigation example:** “The dashboard would help me review the month. I would want a clearer route from a chart back to the purchases behind it.”
+
+Ask each reviewer to enter a purchase, find it in the journal, compare an alternative and explain what the footprint estimate means. Record what they actually say, any task they cannot complete and the date. Replace the examples with their approved comments only after the review; obtain permission before publishing names or quotes in this public repository.
+
 The opt-in research export excludes detailed amounts by default. Classifier text corrections require separate consent and are not automatically included in that export.
 
-A [GitHub issue form](.github/ISSUE_TEMPLATE/research-feedback.yml) also exists. GitHub submissions are attributable to an account and follow the repository’s visibility: visible to authorized collaborators while private, and public if the repository becomes public. They must not be described as anonymous.
+A [GitHub issue form](.github/ISSUE_TEMPLATE/research-feedback.yml) also exists. This repository is public, so issues and feedback submitted there are publicly visible and attributable to a GitHub account. They are not anonymous.
 
 Everyday and research journals use separate browser storage keys. On a hosted Streamlit deployment, session inputs are processed by its server. AI requests additionally reach Groq after consent. Submitting the login or sign-up form sends your email and password to Supabase; SMTP2GO delivers confirmation emails. Signing in does not isolate or upload the local journal. Download backups before clearing browser data or moving devices.
 
 ## 14. Installation
 
 ```bash
-git clone https://github.com/adrian-hue-pixel/ShopImpact.git
-cd ShopImpact
+git clone https://github.com/adrian-hue-pixel/IDAI102-1000528-ADRIAN-ROHITH-C.git
+cd IDAI102-1000528-ADRIAN-ROHITH-C
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-On Windows, activate with `.venv\Scripts\activate` instead. The repository is currently private, so cloning requires access.
+On Windows, activate with `.venv\Scripts\activate` instead. The repository is public; cloning it does not require collaborator access.
 
 The core package is installed from `./core` through the requirements file. The journal, drawings, charts, research calculations and local classifier do not require an AI key. Ask Tilly remains disabled until configured.
 
