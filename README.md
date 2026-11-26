@@ -14,7 +14,7 @@
 - **Log purchases:** record prices, dates and condition; edit, import or export your journal.
 - **Understand patterns:** view monthly spending, category breakdowns and estimated footprints.
 - **Explore choices:** compare alternatives, plan purchases and ask Tilly for explanations.
-- **Make it yours:** Light and Dark modes, a growing garden and optional accounts or guest entry.
+- **Make it yours:** Light and Dark modes, a growing garden and automatic browser-local journal saving.
 
 <details>
 <summary><strong>App screenshots — purchase entry and dashboard</strong></summary>
@@ -28,7 +28,7 @@ Screenshots show the app interface. Dashboard records are simulated test inputs;
 
 </details>
 
-**Run locally:** from the repository root, run `python -m pip install -r requirements.txt`, then `python -m streamlit run app.py`. Keep the full repository, including `core/`, alongside the entry file. Guest mode works without API keys.
+**Run locally:** from the repository root, run `python -m pip install -r requirements.txt`, then `python -m streamlit run app.py`. Keep the full repository, including `core/`, alongside the entry file. The journal and offline research tools work without API keys.
 
 Research methods, data sources and validation are documented in [Research tools](#6-research-tools). [Clean-install check](docs/DEPLOYMENT.md).
 
@@ -49,6 +49,10 @@ A purchase price is easy to record. Its environmental impact is harder to interp
 A spend-based model can assign a lower estimate to a cheaper product even when the underlying product design or expected service life has not improved. Category averages also hide differences between individual products. An attractive number can therefore appear more certain than the evidence supports.
 
 ShopImpact makes those assumptions inspectable. It combines a practical journal with tools that ask where estimates come from, how mapping choices affect them and when a different method gives a different answer.
+
+### Real-world example: repairing or replacing a phone
+
+A student has a phone with a weak battery but otherwise working hardware. Buying a new phone may solve the battery problem, but it also brings a new purchase cost and manufacturing footprint. ShopImpact lets the student compare a repair, a refurbished phone and a new phone using their own prices, expected years of use and available emissions estimates. The lifespan tool helps compare cost per use, while the journal helps track the decision over time. The example illustrates a common practical decision; actual savings depend on the product, repair and usage assumptions.
 
 ## 3. Objectives
 
@@ -105,13 +109,9 @@ Review a monthly narrative, add reflection notes and export summaries, including
 
 Choose appearance, currency display, goal and accessibility preferences. Download backups, preview a restore and inspect the everyday model's limitations and storage behaviour.
 
-### Account access
+### Direct access and saving
 
-Every fresh session opens the minimal account screen. Choose **Log in**, **Sign up**, or **Continue as guest** before accessing any feature. Direct feature links also require this choice, then resume the requested page. Guest admission lasts only for the current session. New accounts require a password of at least 12 characters and email confirmation. While signed in, open **Your account → Log out** to end the session and return to the entry screen. Expired sessions that cannot refresh also return there.
-
-Supabase manages authentication, and a dedicated SMTP2GO connection sends confirmation emails. Password forms clear after submission; access and refresh tokens stay in the Streamlit session rather than the saved journal. An actual signup confirmation reached the maintainer on **12 November 2026**.
-
-Accounts currently authenticate identity only. **Journals remain browser-local: they do not sync across devices or become private by account.** Other users of a shared browser can still access its local journal. Guest access keeps the everyday tools available without an account. See [account setup and privacy](docs/ACCOUNTS.md).
+ShopImpact opens directly to the workspace. Purchases and preferences are saved in the current browser when storage is available. Download a backup before switching devices or clearing browser data.
 
 ## 6. Research tools
 
@@ -160,7 +160,6 @@ The app exposes this example, the recurrence and the nondominated frontier. Test
 - **Python Turtle and SVG:** code-generated plant, footprint and garden illustrations.
 - **Custom SVG/CSS:** Tilly, badge icons, themes, ambient effects and reduced-motion behaviour.
 - **Groq API:** Ask Tilly, currently configured with `openai/gpt-oss-120b`.
-- **Supabase Auth and SMTP2GO:** optional email/password accounts, confirmation emails and logout.
 - **Standard-library HTTP:** provider requests, authentication headers, bounded responses and timeouts.
 - **shopimpact-core:** locally installable, dependency-free research calculations and CLI.
 - **Pytest, Hypothesis, Ruff, Playwright and axe:** verification tools and browser/accessibility checks.
@@ -181,8 +180,6 @@ Browser
        │         ├─ Pinned EPA / CPI / manufacturer data
        │         ├─ Simulation, validation and optimization
        │         └─ Reproducible research journal / exports
-       ├─ Account access → views/account.py + ui/account.py
-       │    └─ account_auth.py → Supabase Auth → SMTP2GO confirmation email
        └─ Ask Tilly → ask_tilly.py
             ├─ Explicit consent and context preview
             ├─ Optional aggregate month summary
@@ -193,7 +190,6 @@ Browser
 ShopImpact/
 ├── app.py                       # Main router; original eight-page workspace
 ├── ask_tilly.py                 # Grounded chat adapter and request guards
-├── account_auth.py              # Managed email authentication and safe provider errors
 ├── research_workspace.py        # Research integration inside the app
 ├── research_app.py              # Research tool renderers and storage validation
 ├── logic.py                     # Everyday illustrative model and journal helpers
@@ -288,7 +284,7 @@ Experiment exports include inputs, seed, dataset version/hash and recorded resul
 
 ### Usability review checklist
 
-Try these tasks as a guest and note where you hesitate or get stuck.
+Try these tasks directly and note where you hesitate or get stuck.
 
 - Log a purchase and find it again in the journal.
 - Open the dashboard and identify which category contributes most to the monthly estimate.
@@ -300,7 +296,7 @@ The opt-in research export excludes detailed amounts by default. Classifier text
 
 A [GitHub issue form](.github/ISSUE_TEMPLATE/research-feedback.yml) also exists. This repository is public, so issues and feedback submitted there are publicly visible and attributable to a GitHub account. They are not anonymous.
 
-Everyday and research journals use separate browser storage keys. On a hosted Streamlit deployment, session inputs are processed by its server. AI requests additionally reach Groq after consent. Submitting the login or sign-up form sends your email and password to Supabase; SMTP2GO delivers confirmation emails. Signing in does not isolate or upload the local journal. Download backups before clearing browser data or moving devices.
+Everyday and research journals use separate browser storage keys. On a hosted Streamlit deployment, session inputs are processed by its server. AI requests additionally reach Groq after consent. Download backups before clearing browser data or moving devices.
 
 ## 14. Installation
 
@@ -330,19 +326,6 @@ Environment variables with the same names also work and take precedence. Restart
 
 Never commit this file or put a real key in an issue, screenshot or README. Groq's free plan has model-dependent [rate limits](https://console.groq.com/docs/rate-limits); a working local key does not guarantee capacity for a public deployment.
 
-### Optional email accounts
-
-Add these values to the same local secrets file or to the deployment's Streamlit Secrets:
-
-```toml
-SUPABASE_URL = "https://YOUR-PROJECT.supabase.co"
-SUPABASE_PUBLISHABLE_KEY = "sb_publishable_YOUR-PUBLIC-KEY"
-```
-
-Use a publishable or legacy anon key, never a secret or service-role key. Environment variables with these names also work. Without account configuration, the form explains that setup is pending and guests can keep using the app.
-
-Keep email confirmation enabled and configure custom SMTP in **Supabase Authentication → Emails → SMTP Settings**. The live deployment uses a verified SMTP2GO sender over TLS on port 587. Its sending password is stored in Supabase's encrypted SMTP settings, outside Git and Streamlit Secrets. Provider quotas and delivery policies still apply. See [account deployment details](docs/ACCOUNTS.md).
-
 ## 16. Reusable core package
 
 `shopimpact-core` can be installed from the repository independently of Streamlit:
@@ -369,7 +352,6 @@ Last recorded local verification, **12 November 2026**:
 - **561 Python tests passed.** Coverage includes journal validation, persistence, imports/exports, state transitions, research arithmetic, source integrity, shared-factor simulation, replay, planner optimality, classifier behaviour, AI request handling, account validation, safe authentication errors login/logout state transitions, required entry choices, deep-link gating and guest-session boundaries.
 - **Ruff checks passed for the changed account and shared application files.**
 - **Live Groq replies verified**, including an answer through the real Ask Tilly interface. This is a connection smoke test, not a completed chatbot accuracy evaluation.
-- **Deployed account screen verified.** Signup confirmation reached the maintainer through Supabase and SMTP2GO. This confirms delivery to one inbox, not every email provider.
 - **Browser/accessibility matrix not verified as passing.** Playwright coverage and an Ubuntu CI workflow are included; neither their presence nor the Python result proves browser or accessibility compliance.
 - **Physical-device testing and full accessibility audit remain outstanding.**
 
@@ -388,15 +370,14 @@ The active browser suite targets the original pages and embedded research routes
 
 ## 18. Deployment
 
-The app is deployed at **[shopimpact-app.streamlit.app](https://shopimpact-app.streamlit.app/)**. The account screen and Ask Tilly have received live connection checks. The full browser/accessibility matrix and physical-device audit remain outstanding.
+The app is deployed at **[shopimpact-app.streamlit.app](https://shopimpact-app.streamlit.app/)**. Ask Tilly has received a live connection check. The full browser/accessibility matrix and physical-device audit remain outstanding.
 
 For a Streamlit Community Cloud deployment:
 
 1. Connect an account with access to this GitHub repository.
 2. Select branch `main` and entry point `app.py`.
 3. Configure `GROQ_API_KEY` and `GROQ_MODEL` for Ask Tilly in deployment secrets.
-4. Configure `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` for optional accounts. Set the Supabase Site URL to your deployed `/account` route and configure a verified SMTP sender.
-5. Check dependency installation, storage recovery, account confirmation, all routes and provider quotas.
+5. Check dependency installation, storage recovery, all routes and provider quotas.
 6. Complete the outstanding browser, accessibility and physical-phone checks before claiming deployment-wide quality.
 
 The local secrets file does not travel with Git. A deployment must receive its key separately. See the [deployment notes](docs/DEPLOY.md) for additional project context; older documents may describe earlier versions of the app.
