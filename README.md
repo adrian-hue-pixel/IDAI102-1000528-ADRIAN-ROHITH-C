@@ -282,6 +282,10 @@ Experiment exports include inputs, seed, dataset version/hash and recorded resul
 
 **Impact Lab → Share study feedback** provides a task/rating/consent form. Responses are browser-local and downloadable. There is no connected central study database and no completed user-study claim.
 
+### Informal classmate feedback
+
+The project creator reports that classmates found ShopImpact useful for understanding their everyday purchases and making more informed shopping decisions. They appreciated its practical approach to exploring environmental impact.
+
 ### Usability review checklist
 
 Try these tasks directly and note where you hesitate or get stuck.
