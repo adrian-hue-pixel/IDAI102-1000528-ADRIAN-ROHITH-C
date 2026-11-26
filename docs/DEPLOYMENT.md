@@ -31,6 +31,6 @@ python -m streamlit run app.py
 
 These results establish a fresh clone/install and startup check, including Linux dependency installation in CI. They do not represent a newly provisioned Streamlit Cloud deployment or a complete browser audit. A cloud reboot can reuse its existing environment and is not proof of a clean build.
 
-Deploy branch `main` with main file `app.py` and select Python 3.14 to match the verified environment. Configure Supabase public authentication settings for accounts and Groq credentials for Ask Tilly in Streamlit Secrets; never commit secrets. Guest entry and offline research tools remain available without those services.
+Deploy branch `main` with main file `app.py` and select Python 3.14 to match the verified environment. Configure Groq credentials for Ask Tilly in Streamlit Secrets. Never commit secrets. The journal and offline research tools work without account configuration.
 
-The live application is https://shopimpact-app.streamlit.app/. For a provider-side clean-build check, inspect the installation logs of a newly provisioned Cloud deployment, then verify entry, guest Home and Research tools. The existing live app has received separate browser checks; that does not replace a fresh-build log.
+The live application is https://shopimpact-app.streamlit.app/. For a provider-side clean-build check, inspect the installation logs of a newly provisioned Cloud deployment, then verify Home, browser saving and Research tools. The existing live app has received separate browser checks; that does not replace a fresh-build log.
