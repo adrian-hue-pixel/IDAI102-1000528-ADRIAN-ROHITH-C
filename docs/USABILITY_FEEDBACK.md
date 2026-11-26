@@ -9,5 +9,3 @@ I collected reviews of the app from my friends, who gave me some ideas and sugge
 | Karnish | 16.11.2026 | It would be useful to compare a second-hand item with a new one before deciding what to buy. | Swaps and purchase planning |
 | Prijesh | 12.11.2026 | I'd prefer to open the app straight away and find my purchases still saved when I come back. | Direct workspace access and automatic browser saving |
 | Anish | 24.11.2026 | The CO₂ numbers would be easier to understand if I could ask questions and get a simple explanation. | Ask Tilly AI assistant |
-
-The [five-person usability feedback record](USABILITY_FEEDBACK.md) is ready for independent responses and a record of changes made after each recommendation.
