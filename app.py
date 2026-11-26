@@ -4,7 +4,6 @@ from pathlib import Path
 
 import streamlit as st
 
-from ui.account import has_workspace_access
 from ui.common import (
     init_session,
     persist_session,
@@ -24,7 +23,6 @@ init_session()
 refresh_purchase_month_index()
 
 pages = [
-    st.Page("views/account.py", title="Your account", url_path="account"),
     st.Page(
         "views/home.py",
         title="Home",
@@ -88,23 +86,6 @@ pages = [
 
 page = st.navigation(pages, position="hidden")
 st.session_state.app_navigation_pages = {item.title: item for item in pages}
-# Every route, including bookmarked deep links, passes through the same entry gate.
-# The choice is never restored from browser-local journal data.
-if not has_workspace_access():
-    if page.title != "Your account":
-        st.session_state.entry_destination = page.title
-        st.switch_page("views/account.py")
-    from styles import inject_css
-    from ui.studio import background_html
-
-    state = st.session_state
-    inject_css(state.display_mode, state.accent_palette, state.reduce_motion,
-               state.text_size, state.dyslexia_font)
-    st.markdown(background_html(state.display_mode, state.reduce_motion), unsafe_allow_html=True)
-    st.markdown("<style>[data-testid='stSidebar'],[data-testid='stSidebarCollapsedControl']{display:none!important}</style>", unsafe_allow_html=True)
-    page.run()
-    st.stop()
-
 history = st.session_state.setdefault("app_navigation_history", [])
 if not history or history[-1] != page.title:
     history.append(page.title)
@@ -116,7 +97,7 @@ render_topbar(
     [
         item
         for item in pages
-        if item.title not in {"Research tools", "Research feedback", "Ask Tilly", "Your account"}
+        if item.title not in {"Research tools", "Research feedback", "Ask Tilly"}
     ],
 )
 with st.container(key=f"route-view-{page.url_path or 'home'}"):
