@@ -1,13 +1,13 @@
-# Usability feedback
+# Usability feedback and implementation
 
-I reported positive informal classmate reactions to the app. I am using the following five-person review to collect specific suggestions and document improvements. Responses are pending until each reviewer supplies their own observations.
+My classmates expressed positive overall reactions to ShopImpact. The following five review prompts reflect features I have already implemented and can be used to gather more specific observations.
 
-| Reviewer | Task to try | Actual feedback | Change made after feedback |
-| --- | --- | --- | --- |
-| Friend 1 | Enter and find a purchase | Pending | Pending |
-| Friend 2 | Interpret the dashboard | Pending | Pending |
-| Friend 3 | Compare alternatives | Pending | Pending |
-| Friend 4 | Try direct access and browser saving | Pending | Pending |
-| Friend 5 | Ask Tilly about an estimate | Pending | Pending |
+| Review task | Implemented feature | Implementation status |
+| --- | --- | --- |
+| Enter and find a purchase | Category selection, live estimates and searchable journal | Done |
+| Interpret the dashboard | Monthly totals, category breakdowns and trends | Done |
+| Compare alternatives | Swaps and purchase planning | Done |
+| Access and save the journal | Direct workspace access and browser-local saving | Done |
+| Ask Tilly about an estimate | AI assistant with model explanations | Done |
 
-For each task, record the date, whether it was completed, what worked, what was confusing, and a recommendation. Reviewers can use Impact Lab → Share study feedback, download their responses, and share them with me. Record only feedback that the reviewer agrees can be published.
+The status column refers to implementation, not the completion of five independent usability interviews. Reviewers can share specific observations through Impact Lab → Share study feedback and download their responses.
