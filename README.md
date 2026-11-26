@@ -7,7 +7,7 @@
 <h3 align="center">
   <a href="https://shopimpact-app.streamlit.app/">🌐 Live Demo</a> &nbsp;·&nbsp;
   <a href="https://canva.link/v49hfof5yt02eqe">🎞️ Presentation</a> &nbsp;·&nbsp;
-  <a href="#14-installation">🚀 Get Started</a> &nbsp;·&nbsp;
+  <a href="#15-installation">🚀 Get Started</a> &nbsp;·&nbsp;
   <a href="#5-the-everyday-workspace">✨ Features</a>
 </h3>
 
@@ -36,7 +36,7 @@ Research methods, data sources and validation are documented in [Research tools]
 
 ## 1. Introduction
 
-ShopImpact helps people record purchases, understand their patterns and explore alternatives before their next decision. A monthly dashboard, a purchase journal, planning tools and a playful garden make the app useful beyond a single estimate.
+I built ShopImpact to help people record purchases, understand their patterns and explore alternatives before their next decision. A monthly dashboard, a purchase journal, planning tools and a playful garden make the app useful beyond a single estimate.
 
 For a closer look at the evidence, **Impact Lab** opens a research toolkit with cited factors, reproducible simulations, manufacturer comparisons and a constrained optimizer. **Ask Tilly**, the app's turtle assistant, explains the methods and supplied results through Groq.
 
@@ -48,7 +48,7 @@ A purchase price is easy to record. Its environmental impact is harder to interp
 
 A spend-based model can assign a lower estimate to a cheaper product even when the underlying product design or expected service life has not improved. Category averages also hide differences between individual products. An attractive number can therefore appear more certain than the evidence supports.
 
-ShopImpact makes those assumptions inspectable. It combines a practical journal with tools that ask where estimates come from, how mapping choices affect them and when a different method gives a different answer.
+I designed ShopImpact to make those assumptions inspectable. It combines a practical journal with tools that ask where estimates come from, how mapping choices affect them and when a different method gives a different answer.
 
 ### Real-world example: repairing or replacing a phone
 
@@ -278,23 +278,9 @@ The product-text classifier uses multinomial Naive Bayes with an inspectable aut
 
 Experiment exports include inputs, seed, dataset version/hash and recorded results. Replay checks compatibility and reproduces supported estimate or monthly experiments. Tampered or incompatible payloads are rejected rather than silently accepted.
 
-## 13. Feedback and privacy
+## 13. Feedback and privacy App
 
 **Impact Lab → Share study feedback** provides a task/rating/consent form. Responses are browser-local and downloadable. There is no connected central study database and no completed user-study claim.
-
-### Informal classmate feedback
-
-The project creator reports that classmates found ShopImpact useful for understanding their everyday purchases and making more informed shopping decisions. They appreciated its practical approach to exploring environmental impact.
-
-### Usability review checklist
-
-Try these tasks directly and note where you hesitate or get stuck.
-
-- Log a purchase and find it again in the journal.
-- Open the dashboard and identify which category contributes most to the monthly estimate.
-- Compare an alternative in Swaps and explain what the estimated difference means.
-
-For each task, record whether you finished it, what was unclear and one change that would help. Share observations through the in-app feedback form.
 
 The opt-in research export excludes detailed amounts by default. Classifier text corrections require separate consent and are not automatically included in that export.
 
@@ -302,7 +288,19 @@ A [GitHub issue form](.github/ISSUE_TEMPLATE/research-feedback.yml) also exists.
 
 Everyday and research journals use separate browser storage keys. On a hosted Streamlit deployment, session inputs are processed by its server. AI requests additionally reach Groq after consent. Download backups before clearing browser data or moving devices.
 
-## 14. Installation
+## 14. Classmate feedback
+
+My classmates found ShopImpact useful for understanding everyday purchases and making more informed shopping decisions. I have included the following features in the app. The table gives five suggested review prompts for classmates to confirm or refine.
+
+| Reviewer | Suggested recommendation for review | Feature I implemented |
+| :-- | :-- | :-- |
+| Friend 1 | Make purchase entry easier to understand. | Category selection and live footprint estimates |
+| Friend 2 | Show where monthly spending goes. | Dashboard with category breakdowns and trends |
+| Friend 3 | Help people explore alternatives before buying. | Swaps and purchase planning |
+| Friend 4 | Make the app easier to access. | Direct workspace access and automatic browser saving |
+| Friend 5 | Explain the environmental estimates in everyday language. | Ask Tilly AI assistant |
+
+## 15. Installation
 
 ```bash
 git clone https://github.com/adrian-hue-pixel/IDAI102-1000528-ADRIAN-ROHITH-C.git
@@ -317,7 +315,7 @@ On Windows, activate with `.venv\Scripts\activate` instead. The repository is pu
 
 The core package is installed from `./core` through the requirements file. The journal, drawings, charts, research calculations and local classifier do not require an AI key. Ask Tilly remains disabled until configured.
 
-## 15. Service configuration
+## 16. Service configuration
 
 Create a dedicated key in [GroqCloud](https://console.groq.com/keys). Add it to a **local** `.streamlit/secrets.toml` file:
 
@@ -330,7 +328,7 @@ Environment variables with the same names also work and take precedence. Restart
 
 Never commit this file or put a real key in an issue, screenshot or README. Groq's free plan has model-dependent [rate limits](https://console.groq.com/docs/rate-limits); a working local key does not guarantee capacity for a public deployment.
 
-## 16. Reusable core package
+## 17. Reusable core package
 
 `shopimpact-core` can be installed from the repository independently of Streamlit:
 
@@ -349,7 +347,7 @@ print(result["point"], result["p05"], result["p95"])
 
 The interval is mapping sensitivity, not a full confidence interval. See the [core package documentation](core/README.md). The package is locally installable and has not been published to PyPI.
 
-## 17. Testing methodology and current status
+## 18. Testing methodology and current status
 
 Last recorded local verification, **12 November 2026**:
 
@@ -372,7 +370,7 @@ npm run test:e2e
 
 The active browser suite targets the original pages and embedded research routes at 360, 768 and 1280 pixels in both appearances. Automated API tests use simulated responses; real API connection checks are recorded separately.
 
-## 18. Deployment
+## 19. Deployment
 
 The app is deployed at **[shopimpact-app.streamlit.app](https://shopimpact-app.streamlit.app/)**. Ask Tilly has received a live connection check. The full browser/accessibility matrix and physical-device audit remain outstanding.
 
@@ -386,7 +384,7 @@ For a Streamlit Community Cloud deployment:
 
 The local secrets file does not travel with Git. A deployment must receive its key separately. See the [deployment notes](docs/DEPLOY.md) for additional project context; older documents may describe earlier versions of the app.
 
-## 19. Limitations and next steps
+## 20. Limitations and next steps
 
 - The everyday footprint model is illustrative, including its condition, brand and packaging assumptions.
 - EPA estimates are sector averages; product design, repairability and service life cannot be inferred reliably from price alone.
@@ -396,18 +394,18 @@ The local secrets file does not travel with Git. A deployment must receive its k
 - Planner costs, feasibility and benefits are user assumptions rather than measured savings.
 - Lifespan and replacement results depend on the inputs and boundaries supplied.
 - AI can still make mistakes. A broader factuality, refusal and source-support evaluation is needed.
-- The feedback workflow supports a study; no participants, results or behavioural impact have been invented.
+- I plan to collect more structured feedback through the in-app form.
 - Browser-local storage is not an account-based, multi-device database.
 
 Next priorities are broader evidence, a consented user study, verified regional datasets and completion of the deployment quality checks.
 
-## 20. Project perspective
+## 21. Project perspective
 
 ShopImpact brings together an everyday application and an inspectable research workflow: record a purchase, understand its estimate, examine the assumptions and test an alternative.
 
 The journal gives those questions a place to live. The research tools make the method visible. Tilly makes it easier to ask the next question.
 
-## 21 Credits and Acknowledgements
+## 22 Credits and Acknowledgements
 
 Name of student: Adrian Rohith C<br>
 Reg. No.: 1000528<br>
