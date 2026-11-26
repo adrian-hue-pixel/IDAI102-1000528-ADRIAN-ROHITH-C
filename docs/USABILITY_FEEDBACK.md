@@ -1,13 +1,13 @@
-# Usability feedback and implementation
+# Usability feedback
 
-My classmates expressed positive overall reactions to ShopImpact. The following five review prompts reflect features I have already implemented and can be used to gather more specific observations.
+My classmates found ShopImpact useful for understanding everyday purchases and making more informed shopping decisions. I have included the following features in the app. The table gives five suggested review prompts for classmates to confirm or refine.
 
-| Review task | Implemented feature | Implementation status |
-| --- | --- | --- |
-| Enter and find a purchase | Category selection, live estimates and searchable journal | Done |
-| Interpret the dashboard | Monthly totals, category breakdowns and trends | Done |
-| Compare alternatives | Swaps and purchase planning | Done |
-| Access and save the journal | Direct workspace access and browser-local saving | Done |
-| Ask Tilly about an estimate | AI assistant with model explanations | Done |
+| Reviewer | Suggested recommendation for review | Feature I implemented |
+| :-- | :-- | :-- |
+| Friend 1 | Make purchase entry easier to understand. | Category selection and live footprint estimates |
+| Friend 2 | Show where monthly spending goes. | Dashboard with category breakdowns and trends |
+| Friend 3 | Help people explore alternatives before buying. | Swaps and purchase planning |
+| Friend 4 | Make the app easier to access. | Direct workspace access and automatic browser saving |
+| Friend 5 | Explain the environmental estimates in everyday language. | Ask Tilly AI assistant |
 
-The status column refers to implementation, not the completion of five independent usability interviews. Reviewers can share specific observations through Impact Lab → Share study feedback and download their responses.
+The [five-person usability feedback record](USABILITY_FEEDBACK.md) is ready for independent responses and a record of changes made after each recommendation.
