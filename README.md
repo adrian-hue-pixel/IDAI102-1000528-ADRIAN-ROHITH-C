@@ -54,6 +54,10 @@ I designed ShopImpact to make those assumptions inspectable. It combines a pract
 
 A student has a phone with a weak battery but otherwise working hardware. Buying a new phone may solve the battery problem, but it also brings a new purchase cost and manufacturing footprint. ShopImpact lets the student compare a repair, a refurbished phone and a new phone using their own prices, expected years of use and available emissions estimates. The lifespan tool helps compare cost per use, while the journal helps track the decision over time. The example illustrates a common practical decision; actual savings depend on the product, repair and usage assumptions.
 
+### Design and planning evidence
+
+I mapped first-time shoppers, students comparing alternatives, returning journal users and accessibility needs to the app's layout and features. See my [assessment design plan](docs/ASSESSMENT_DESIGN.md) and [desktop/mobile wireframe](docs/screenshots/shopimpact-wireframe.svg). The wireframe reconstructs the implemented design; the earlier design decisions and changes are documented in [the development record](docs/design_plan.md).
+
 ## 3. Objectives
 
 - Make purchase recording, planning and reflection straightforward.
@@ -300,6 +304,8 @@ My classmates found ShopImpact useful for understanding everyday purchases and m
 | Friend 4 | Make the app easier to access. | Direct workspace access and automatic browser saving |
 | Friend 5 | Explain the environmental estimates in everyday language. | Ask Tilly AI assistant |
 
+The [five-person usability feedback record](docs/USABILITY_FEEDBACK.md) is ready for independent responses and a record of changes made after each recommendation.
+
 ## 15. Installation
 
 ```bash
@@ -349,7 +355,9 @@ The interval is mapping sensitivity, not a full confidence interval. See the [co
 
 ## 18. Testing methodology and current status
 
-Last recorded local verification, **12 November 2026**:
+**Fresh assessment scenario (26 November 2026):** I tested 12 individually specified example purchases through the current journal engine. All additions, running totals, formula checks, alternatives, expected badge awards and invalid-price checks passed. The scenario total was $1,514.00 and 778.90 kg of illustrative CO₂e. [See the results and limitations](docs/ASSESSMENT_TEST_RUN.md) or [run the test](tests/run_assignment_scenario.py). This is a synthetic-input logic test, not a new hosted browser test.
+
+Earlier recorded local verification, **12 November 2026**:
 
 - **561 Python tests passed.** Coverage includes journal validation, persistence, imports/exports, state transitions, research arithmetic, source integrity, shared-factor simulation, replay, planner optimality, classifier behaviour, AI request handling, account validation, safe authentication errors login/logout state transitions, required entry choices, deep-link gating and guest-session boundaries.
 - **Ruff checks passed for the changed account and shared application files.**
@@ -379,8 +387,8 @@ For a Streamlit Community Cloud deployment:
 1. Connect an account with access to this GitHub repository.
 2. Select branch `main` and entry point `app.py`.
 3. Configure `GROQ_API_KEY` and `GROQ_MODEL` for Ask Tilly in deployment secrets.
-5. Check dependency installation, storage recovery, all routes and provider quotas.
-6. Complete the outstanding browser, accessibility and physical-phone checks before claiming deployment-wide quality.
+4. Check dependency installation, storage recovery, all routes and provider quotas.
+5. Complete the outstanding browser, accessibility and physical-phone checks before claiming deployment-wide quality.
 
 The local secrets file does not travel with Git. A deployment must receive its key separately. See the [deployment notes](docs/DEPLOY.md) for additional project context; older documents may describe earlier versions of the app.
 
